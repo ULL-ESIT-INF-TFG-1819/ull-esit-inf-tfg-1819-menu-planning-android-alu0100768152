@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">TFG</string>
+    <string name="Rellenalossiguientesdatospersonales">Rellena los siguientes datos personales:</string>
+    <string name="Sexo">Sexo:</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="edad">Edad:</string>
+    <string name="altura">Altura:</string>
+    <string name="peso">Peso:</string>
+    <string name="Comodeactivoeresadiario">¿Como de activo eres a diario?</string>
+    <string name="Nadaactivo">Nada activo</string>
+    <string name="Sedentariopocoactivo">Sedentario, poco activo</string>
+    <string name="Activoomoderadamenteactivo">Activo o moderadamente activo</string>
+    <string name="Muyactivo">Muy activo</string>
+    <string name="Paracocinarutilizasaceitedeoliva">¿Para cocinar utilizas aceite de oliva?</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="continuar">Continuar</string>
+    <string name="Seleccioneeltipodedietaaseguir">Seleccione el tipo de dieta a seguir:</string>
+    <string name="Balanceada">Balanceada</string>
+    <string name="altaenproteinas">Alta en proteinas</string>
+    <string name="bajaengrasas">Baja en grasas</string>
+    <string name="bajaencarbohidratos">Baja en carbohidratos</string>
+    <string name="otrascaracteristicasdetudieta">Otras características de tu diata:</string>
+    <string name="vegetariana">Vegetariana</string>
+    <string name="vegana">Vegana</string>
+    <string name="sinalcohol">Sin alcohol</string>
+    <string name="reducidaenazucar">Reducida en azúcar</string>
+    <string name="sinnueces">Sin nueces</string>
+    <string name="sincacahuetes">Sin cacahuetes</string>
+    <string name="guardar">Guardar</string>
+    <string name="nombre">Nombre</string>
+    <string name="eligeunaopción">Hola elige una opción:</string>
+    <string name="modificardatos">Modificar datos</string>
+    <string name="entrar">Entrar</string>
+    <!--string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string>
+    <string name="app_name"></string-->
+
+
+</resources>
