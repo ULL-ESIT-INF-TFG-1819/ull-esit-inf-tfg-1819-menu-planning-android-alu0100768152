@@ -2,6 +2,7 @@ package com.example.tfg3;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +40,9 @@ public class recoger_datos2 extends AppCompatActivity {
         check_sin_nueces = (CheckBox) findViewById(R.id.check_sin_nueces);
 
 
-
+        //poner el icono en el action Bar:
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
     }
 
@@ -126,6 +129,21 @@ public class recoger_datos2 extends AppCompatActivity {
             registro.put("aceiteOliva", aceiteOliva);
 
 
+            Cursor fila = BaseDeDatos.rawQuery("select id from datosUsuario where id=01", null);
+
+            if(fila.moveToFirst()){
+
+                int cantidad = BaseDeDatos.update("datosUsuario", registro, "id=01", null);
+
+                if(cantidad == 1){
+                    BaseDeDatos.close();
+
+                    startActivity(siguiente);
+                }
+
+            }
+
+
             BaseDeDatos.insert("datosUsuario", null, registro);
 
             BaseDeDatos.close();
@@ -138,5 +156,6 @@ public class recoger_datos2 extends AppCompatActivity {
 
 
     }
+
 
 }

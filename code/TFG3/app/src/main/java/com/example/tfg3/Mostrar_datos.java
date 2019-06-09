@@ -19,6 +19,9 @@ public class Mostrar_datos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_datos);
 
+        //poner el icono en el action Bar:
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         tvEdad = (TextView) findViewById(R.id.tvEdad);
 
