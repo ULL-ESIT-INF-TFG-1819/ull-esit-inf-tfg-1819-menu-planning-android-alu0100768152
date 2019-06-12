@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Entrar(View view) {
-        Intent siguiente = new Intent(this, Mostrar_datos.class);
+        Intent siguiente = new Intent(this, DatosAPI.class);
         startActivity(siguiente);
     }
 

@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.tfg3.CarpetaAPI.Constantes;
 import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
 
 public class recoger_datos2 extends AppCompatActivity {
@@ -47,9 +48,11 @@ public class recoger_datos2 extends AppCompatActivity {
     }
 
 
+
+
     public void Guardar(View view) {
 
-        Intent siguiente = new Intent(this, Mostrar_datos.class);
+        Intent siguiente = new Intent(this, DatosAPI.class);
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper( this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
@@ -63,6 +66,7 @@ public class recoger_datos2 extends AppCompatActivity {
         String sexo = datos.getString("sexo");
         int edad = Integer.parseInt(datos.getString("edad"));
         int altura = Integer.parseInt(datos.getString("altura"));
+
         double peso = Double.parseDouble(datos.getString("peso"));
         double actividad = datos.getDouble("actividad");
 
@@ -84,24 +88,25 @@ public class recoger_datos2 extends AppCompatActivity {
         String Health = "";
 
         if (check_vegetariana.isChecked() == true) {
-            Health = Health + "&health=vegetrian";
+            Health = Health + "vegetarian";
         }
         if (check_vegana.isChecked() == true) {
-            Health = Health + "&health=vegan";
+            Health = Health + "vegan";
         }
         if (check_sin_alcohol.isChecked() == true) {
-            Health = Health + "&health=alcohol-free";
+            Health = Health + "alcohol-free";
         }
         if (check_reducida_azucar.isChecked() == true) {
-            Health = Health + "&health=sugar-conscious";
+            Health = Health + "sugar-conscious";
         }
         if (check_sin_cacahuetes.isChecked() == true) {
-            Health = Health + "&health=peanut-free";
+            Health = Health + "peanut-free";
         }
         if (check_sin_nueces.isChecked() == true) {
-            Health = Health + "&health=tree-nut-free";
+            Health = Health + "tree-nut-free";
         }
 
+        //Constantes.setHEALTH(Health);
 
         String aceiteOliva = "nada";
 
