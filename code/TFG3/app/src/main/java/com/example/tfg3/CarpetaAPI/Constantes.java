@@ -5,14 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class Constantes {
 
 
+    /*public ArrayList<Recipe> ListaRecetas;
 
+    public void setListaRecetas(ArrayList<Recipe> listaRecetas) {
+        ListaRecetas = listaRecetas;
+    }
 
-
-
-   /* public String HEALTH;
+/* public String HEALTH;
 
     public void setHEALTH(String HEALTH) {
         this.HEALTH = HEALTH;

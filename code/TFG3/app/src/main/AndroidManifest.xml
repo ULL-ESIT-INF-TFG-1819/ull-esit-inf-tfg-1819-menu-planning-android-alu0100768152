@@ -21,7 +21,8 @@
         <activity android:name=".recoger_datos1" />
         <activity android:name=".Mostrar_datos" />
         <activity android:name=".DatosAPI" />
-        <activity android:name=".recoger_datos2"></activity>
+        <activity android:name=".recoger_datos2" />
+        <activity android:name=".MenuSemanal"></activity>
     </application>
 
 </manifest>

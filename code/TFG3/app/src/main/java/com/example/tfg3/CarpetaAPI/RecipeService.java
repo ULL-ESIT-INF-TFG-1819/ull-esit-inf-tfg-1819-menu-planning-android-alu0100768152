@@ -11,7 +11,14 @@ import retrofit2.http.Query;
 
 public interface RecipeService {
 
-  /*  public void Gfvr() {
+
+
+    @GET("search?from=0&to=20")
+    Call<Respuesta> obtenerDatos(@Query("q") String q, @Query("app_id") String app_id, @Query("app_key") String app_key ,@Query("health") String health, @Query("diet") String diet);
+}
+
+
+ /*  public void Gfvr() {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
@@ -32,7 +39,3 @@ public interface RecipeService {
 
         BaseDeDatos.close();
     }*/
-
-    @GET("search?q=&app_id=f8a801f5&app_key=70a3be442007e101a7617c95f943525a&from=0&to=20&health=alcohol-free")
-    Call<Respuesta> obtenerDatos(@Query("health") String health, @Query("diet") String diet);
-}
