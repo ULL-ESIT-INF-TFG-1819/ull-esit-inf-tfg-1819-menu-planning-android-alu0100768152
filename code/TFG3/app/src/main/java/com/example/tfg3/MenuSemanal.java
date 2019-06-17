@@ -30,8 +30,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MenuSemanal extends AppCompatActivity {
 
-    private ImageView imgLunes1, imgLunes2, imgMartes1;
+    private ImageView imgLunes1, imgLunes2, imgMartes1, imgMartes2;
     private TextView datos;
+
+    private ArrayList<Recipe> listaRecetas;
+    private ArrayList<Recipe> listaPrimeros;
+    private ArrayList<Recipe> listaSegundos;
 
     private Retrofit retrofit;
     private static final String TAG = "RECETA";
@@ -48,10 +52,6 @@ public class MenuSemanal extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        imgLunes1 = (ImageView) findViewById(R.id.imgLunes1);
-        imgLunes2 = (ImageView) findViewById(R.id.imgLunes2);
-        imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);
-        datos = (TextView) findViewById(R.id.datos);
 
 
         retrofit = new Retrofit.Builder()
@@ -59,7 +59,33 @@ public class MenuSemanal extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        obtenerDatos();
+
+        // BBDD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+
+        Cursor fila = BaseDeDatos.rawQuery("select diet, health from datosUsuario where id=01", null);
+
+
+        String diet = "";
+        String health = "";
+
+
+        if (fila.moveToFirst()) {
+
+            diet = fila.getString(0);
+            health = fila.getString(1);
+
+
+        }
+
+        //Log.i(TAG, health);
+        BaseDeDatos.close();
+
+
+        String q = "first course";
+        obtenerPrimeros(q, diet, health);
+
 
         //Bundle datos = getIntent().getExtras();
         //ArrayList<Recipe> listaRecipe = (ArrayList<Recipe>) getIntent().getSerializableExtra("listaRecipe");
@@ -88,31 +114,8 @@ public class MenuSemanal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void obtenerDatos() {
+    private void obtenerPrimeros(String q, String diet, String health) {
 
-
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
-        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
-
-        Cursor fila = BaseDeDatos.rawQuery("select diet, health from datosUsuario where id=01", null);
-
-
-        String diet = "";
-        String health = "";
-
-
-        if (fila.moveToFirst()) {
-
-            diet = fila.getString(0);
-            health = fila.getString(1);
-
-
-        }
-
-        //Log.i(TAG, health);
-        BaseDeDatos.close();
-
-        String q = "first course";
         RecipeService service = retrofit.create(RecipeService.class);
         Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, diet);
 
@@ -125,19 +128,13 @@ public class MenuSemanal extends AppCompatActivity {
                     Respuesta respuesta = response.body();
                     ArrayList<Recipe> listaRecipe = respuesta.getHits();
 
-                    Recipe p = listaRecipe.get(0);
-                    Recipe j = listaRecipe.get(1);
+                    listaPrimeros = listaRecipe;
 
-                    Picasso.get()
-                            .load(p.getRecipe().getImage())
-                            .into(imgLunes2);
 
-                    Picasso.get()
-                            .load(j.getRecipe().getImage())
-                            .into(imgLunes1);
 
-                    datos.setText("URL: "+ p.getRecipe().getUrl() + "\n\n Raciones: " + p.getRecipe().getYield() + "\n\n Calorías: "
-                            + p.getRecipe().getCalories() + "\n\n Ingrediente: " + p.getRecipe().getIngredients().get(0).getText() + "\n\n Grasas: " + p.getRecipe().getTotalNutrients().getFAT().getQuantity());
+
+                    //datos.setText("URL: "+ p.getRecipe().getUrl() + "\n\n Raciones: " + p.getRecipe().getYield() + "\n\n Calorías: "
+                    //        + p.getRecipe().getCalories() + "\n\n Ingrediente: " + p.getRecipe().getIngredients().get(0).getText() + "\n\n Grasas: " + p.getRecipe().getTotalNutrients().getFAT().getQuantity());
 
                     //listaRecipeAdapter.adicionarListaRecipe(listaRecipe);
 
@@ -158,5 +155,94 @@ public class MenuSemanal extends AppCompatActivity {
             }
         });
 
+        q = "main dish";
+        obtenerSegundos(q, diet, health);
+
     }
+
+    private void obtenerSegundos(String q, String diet, String health) {
+
+        RecipeService service = retrofit.create(RecipeService.class);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, diet);
+
+        RespuestaCall.enqueue(new Callback<Respuesta>() {
+            @Override
+            public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
+
+                if (response.isSuccessful()) {
+
+                    Respuesta respuesta = response.body();
+                    ArrayList<Recipe> listaRecipe = respuesta.getHits();
+
+                    listaSegundos = listaRecipe;
+
+                    otrometodo();
+
+
+                } else {
+                    Log.e(TAG, " onResponse: " + response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Respuesta> call, Throwable t) {
+
+                Log.e(TAG, " onFailure: " + t.getMessage());
+            }
+        });
+
+    }
+
+
+    private void otrometodo() {
+        imgLunes1 = (ImageView) findViewById(R.id.imgLunes1);
+        imgLunes2 = (ImageView) findViewById(R.id.imgLunes2);
+
+
+        Recipe p = listaPrimeros.get(0);
+        Recipe j = listaPrimeros.get(1);
+
+        Picasso.get()
+                .load(p.getRecipe().getImage())
+                .into(imgLunes1);
+
+        Picasso.get()
+                .load(j.getRecipe().getImage())
+                .into(imgLunes2);
+
+
+        imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);
+        imgMartes2 = (ImageView) findViewById(R.id.imgMartes2);
+
+        p = listaSegundos.get(0);
+        j = listaSegundos.get(1);
+
+        Picasso.get()
+                .load(p.getRecipe().getImage())
+                .into(imgMartes1);
+
+        Picasso.get()
+                .load(j.getRecipe().getImage())
+                .into(imgMartes2);
+
+    }
+
+    /*private void otrometodo2() {
+
+        imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);
+        imgMartes2 = (ImageView) findViewById(R.id.imgMartes2);
+
+        Recipe p = listaSegundos.get(0);
+        Recipe j = listaSegundos.get(1);
+
+        Picasso.get()
+                .load(p.getRecipe().getImage())
+                .into(imgMartes1);
+
+        Picasso.get()
+                .load(j.getRecipe().getImage())
+                .into(imgMartes2);
+    }*/
+
+
 }

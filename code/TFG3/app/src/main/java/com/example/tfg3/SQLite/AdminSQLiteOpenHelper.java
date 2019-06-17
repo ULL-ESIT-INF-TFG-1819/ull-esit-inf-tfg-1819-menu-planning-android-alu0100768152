@@ -11,7 +11,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
         BaseDeDatos.execSQL("create table datosUsuario(id int primary key, nombre text, sexo text, edad int, altura int, peso real, actividad real, diet text, health text, aceiteOliva text)");
-        //BaseDeDatos.execSQL("create table datosMenu(id int primary key, nombre text, sexo text, edad int, altura int, peso real, actividad real, diet text, health text, aceiteOliva text)");
+        BaseDeDatos.execSQL("create table macronutrientes(id int primary key, kcal_dia real, grasas real, proteinas real, hidratos real)");
 
     }
 

@@ -44,6 +44,7 @@ public class Mostrar_datos extends AppCompatActivity {
         Cursor fila = BaseDeDatos.rawQuery("select nombre, sexo, edad, altura, peso, actividad, diet, health, aceiteOliva from datosUsuario where id=01", null);
 
 
+
         String nombre = "";
         String sexo = "";
         int edad = 0;
@@ -53,8 +54,16 @@ public class Mostrar_datos extends AppCompatActivity {
         String diet = "";
         String health = "";
         String aceiteOliva = "";
+        Double kcal_dia = 0.0;
+        Double grasas = 0.0;
+        Double proteinas = 0.0;
+        Double hidratos = 0.0;
 
-        if(fila.moveToFirst()){
+
+
+
+
+       if(fila.moveToFirst()){
             nombre = fila.getString(0);
             sexo = fila.getString(1);
             edad = Integer.parseInt(fila.getString(2));
@@ -67,68 +76,19 @@ public class Mostrar_datos extends AppCompatActivity {
 
         }
 
+        Cursor paca = BaseDeDatos.rawQuery("select kcal_dia, grasas, proteinas, hidratos from macronutrientes where id=01", null);
+
+        if(paca.moveToFirst()){
+            kcal_dia = Double.valueOf(paca.getString(0)).doubleValue();
+            grasas = Double.valueOf(paca.getString(1)).doubleValue();
+            proteinas = Double.valueOf(paca.getString(2)).doubleValue();
+            hidratos = Double.valueOf(paca.getString(3)).doubleValue();
+        }
+
         BaseDeDatos.close();
 
 
-        altura = altura / 100;
 
-
-        double kcal_dia = 0;
-
-        if (sexo.equals("hombre")) {
-            if (edad < 18) {
-                kcal_dia = 17.7 * peso + 651;
-            } else if (edad <= 30) {
-                kcal_dia = 15.4 * peso - 27 * altura + 717;
-            } else if (edad <= 60) {
-                kcal_dia = 11.3 * peso + 16 * altura + 901;
-            } else if (edad > 60) {
-                kcal_dia = 8.8 * peso + 1.128 * altura + 1.071;
-            }
-
-        }
-
-        if (sexo.equals("mujer")) {
-            if (edad < 18) {
-                kcal_dia = 12.2 * peso + 746;
-            } else if (edad <= 30) {
-                kcal_dia = 13.3 * peso + 334 * altura + 35;
-            } else if (edad <= 60) {
-                kcal_dia = 8.7 * peso - 25 * altura + 865;
-            } else if (edad > 60) {
-                kcal_dia = 9.2 * peso * 637 * altura - 302;
-            }
-        }
-
-        kcal_dia = kcal_dia * actividad;
-
-        double grasas = kcal_dia;
-
-        if (aceiteOliva.equals("si")) {
-            grasas = (kcal_dia * 35) / 100;
-        } else if (aceiteOliva.equals("no")) {
-            grasas = (kcal_dia * 30) / 100;
-        }
-
-        double hidratos = kcal_dia - grasas;
-        double proteinas = 0;
-
-        grasas = grasas / 9;
-
-        if (actividad == 1 || actividad == 1.55) {
-            proteinas = peso * 0.8;
-        } else if (actividad == 1.75 && sexo.equals("mujer")) {
-            proteinas = peso;
-        } else if (actividad == 1.75 && sexo.equals("hombre")) {
-            proteinas = peso * 1.2;
-        } else if (actividad == 2.10 && sexo.equals("mujer")) {
-            proteinas = peso * 1.2;
-        } else if (actividad == 2.10 && sexo.equals("hombre")) {
-            proteinas = peso * 1.4;
-        }
-
-        hidratos = hidratos - (proteinas * 4);
-        hidratos = hidratos / 4;
 
         tvEdad.setText("Estas son las kcal que debes consumir al día: " + String.format("%.2f", kcal_dia) + " Kcal \n\n" +
                 "Grasas: " + String.format("%.2f", grasas) + "g \n\n" +
