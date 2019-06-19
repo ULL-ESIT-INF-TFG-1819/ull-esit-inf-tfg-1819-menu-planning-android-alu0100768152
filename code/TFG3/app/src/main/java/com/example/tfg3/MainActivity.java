@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(siguiente);
     }
     public void otro(View view) {
-        Intent siguiente = new Intent(this, MenuSemanal.class);
+        Intent siguiente = new Intent(this, CrearMenu.class);
         startActivity(siguiente);
     }
 

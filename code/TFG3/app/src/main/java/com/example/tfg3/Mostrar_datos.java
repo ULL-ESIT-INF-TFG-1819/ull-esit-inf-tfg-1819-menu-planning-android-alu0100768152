@@ -41,7 +41,7 @@ public class Mostrar_datos extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        Cursor fila = BaseDeDatos.rawQuery("select nombre, sexo, edad, altura, peso, actividad, diet, health, aceiteOliva from datosUsuario where id=01", null);
+        Cursor fila = BaseDeDatos.rawQuery("select nombre, sexo, edad, altura, peso, actividad, health, aceiteOliva from datosUsuario where id=01", null);
 
 
 
@@ -51,7 +51,7 @@ public class Mostrar_datos extends AppCompatActivity {
         Double altura = 0.0;
         Double peso = 0.0;
         Double actividad = 0.0;
-        String diet = "";
+       // String diet = "";
         String health = "";
         String aceiteOliva = "";
         Double kcal_dia = 0.0;
@@ -70,9 +70,9 @@ public class Mostrar_datos extends AppCompatActivity {
             altura = Double.valueOf(fila.getString(3)).doubleValue();
             peso = Double.valueOf(fila.getString(4)).doubleValue();
             actividad = Double.valueOf(fila.getString(5)).doubleValue();
-            diet = fila.getString(6);
-            health = fila.getString(7);
-            aceiteOliva = fila.getString(8);
+            //diet = fila.getString(6);
+            health = fila.getString(6);
+            aceiteOliva = fila.getString(7);
 
         }
 

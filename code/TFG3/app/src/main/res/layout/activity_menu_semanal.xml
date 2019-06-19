@@ -34,8 +34,8 @@
 
                 <ImageView
                     android:id="@+id/imgMartes1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +44,8 @@
 
                 <ImageView
                     android:id="@+id/imgMartes2"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgMartes1"
@@ -69,7 +69,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="22dp"
                     android:text="TextView"
-                    app:layout_constraintStart_toEndOf="@+id/imagen20"
+                    app:layout_constraintStart_toEndOf="@+id/imgSabado2"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
@@ -81,22 +81,22 @@
                     android:text="@string/Sábado"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagen15" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgViernes1" />
 
                 <ImageView
-                    android:id="@+id/imagen20"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:id="@+id/imgSabado2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/imagen21"
+                    app:layout_constraintStart_toEndOf="@+id/imgSabado1"
                     app:layout_constraintTop_toBottomOf="@+id/textView35"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
-                    android:id="@+id/imagen21"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imgSabado1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +110,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="22dp"
                     android:text="TextView"
-                    app:layout_constraintStart_toEndOf="@+id/imagen18"
+                    app:layout_constraintStart_toEndOf="@+id/imgDomingo2"
                     app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
                 <TextView
@@ -122,22 +122,22 @@
                     android:text="@string/Domingo"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagen21" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgSabado1" />
 
                 <ImageView
-                    android:id="@+id/imagen18"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:id="@+id/imgDomingo2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/imagen19"
+                    app:layout_constraintStart_toEndOf="@+id/imgDomingo1"
                     app:layout_constraintTop_toBottomOf="@+id/textView33"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
-                    android:id="@+id/imagen19"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imgDomingo1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +151,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="22dp"
                     android:text="TextView"
-                    app:layout_constraintStart_toEndOf="@+id/imagen16"
+                    app:layout_constraintStart_toEndOf="@+id/imgJueves2"
                     app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
                 <TextView
@@ -163,22 +163,22 @@
                     android:text="@string/Jueves"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagen11" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgMiercoles1" />
 
                 <ImageView
-                    android:id="@+id/imagen16"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:id="@+id/imgJueves2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/imagen17"
+                    app:layout_constraintStart_toEndOf="@+id/imgJueves1"
                     app:layout_constraintTop_toBottomOf="@+id/textView31"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
-                    android:id="@+id/imagen17"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imgJueves1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -192,7 +192,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="22dp"
                     android:text="TextView"
-                    app:layout_constraintStart_toEndOf="@+id/imagen14"
+                    app:layout_constraintStart_toEndOf="@+id/imgViernes2"
                     app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
                 <TextView
@@ -204,22 +204,22 @@
                     android:text="@string/Viernes"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagen17" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgJueves1" />
 
                 <ImageView
-                    android:id="@+id/imagen14"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:id="@+id/imgViernes2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/imagen15"
+                    app:layout_constraintStart_toEndOf="@+id/imgViernes1"
                     app:layout_constraintTop_toBottomOf="@+id/textView29"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
-                    android:id="@+id/imagen15"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imgViernes1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -249,8 +249,8 @@
 
                 <ImageView
                     android:id="@+id/imgLunes2"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgLunes1"
@@ -259,8 +259,8 @@
 
                 <ImageView
                     android:id="@+id/imgLunes1"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -274,7 +274,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="22dp"
                     android:text="TextView"
-                    app:layout_constraintStart_toEndOf="@+id/imagen10"
+                    app:layout_constraintStart_toEndOf="@+id/imgMiercoles2"
                     app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
                 <TextView
@@ -289,19 +289,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/imgMartes1" />
 
                 <ImageView
-                    android:id="@+id/imagen10"
-                    android:layout_width="50dp"
-                    android:layout_height="49dp"
+                    android:id="@+id/imgMiercoles2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/imagen11"
+                    app:layout_constraintStart_toEndOf="@+id/imgMiercoles1"
                     app:layout_constraintTop_toBottomOf="@+id/textView25"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
-                    android:id="@+id/imagen11"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imgMiercoles1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"

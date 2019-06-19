@@ -30,71 +30,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MenuSemanal extends AppCompatActivity {
 
-    private ImageView imgLunes1, imgLunes2, imgMartes1, imgMartes2;
+    private ImageView imgLunes1, imgLunes2, imgMartes1, imgMartes2, imgMiercoles1, imgMiercoles2, imgJueves1, imgJueves2, imgViernes1, imgViernes2, imgSabado1, imgSabado2, imgDomingo1, imgDomingo2;
     private TextView datos;
 
-    private ArrayList<Recipe> listaRecetas;
-    private ArrayList<Recipe> listaPrimeros;
-    private ArrayList<Recipe> listaSegundos;
-
-    private Retrofit retrofit;
-    private static final String TAG = "RECETA";
-    private String app_id = "f8a801f5";
-    private String app_key= "70a3be442007e101a7617c95f943525a";
-    private ListaRecipeAdapter listaRecipeAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_semanal);
 
-        //poner el icono en el action Bar:
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-
-
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.edamam.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-
-        // BBDD
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
-        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
-
-        Cursor fila = BaseDeDatos.rawQuery("select diet, health from datosUsuario where id=01", null);
-
-
-        String diet = "";
-        String health = "";
-
-
-        if (fila.moveToFirst()) {
-
-            diet = fila.getString(0);
-            health = fila.getString(1);
-
-
-        }
-
-        //Log.i(TAG, health);
-        BaseDeDatos.close();
-
-
-        String q = "first course";
-        obtenerPrimeros(q, diet, health);
-
-
-        //Bundle datos = getIntent().getExtras();
-        //ArrayList<Recipe> listaRecipe = (ArrayList<Recipe>) getIntent().getSerializableExtra("listaRecipe");
-        //ArrayList<String> lista = (ArrayList<String>) getIntent().getSerializableExtra("miLista");
-        //imagen1.setImageURI("https://www.edamam.com/web-img/03e/03e118d9a968764719b775890f102d1c.jpg");
-        //Recipe p = listaRecipe.get(0);
+        menuSemanal();
 
     }
 
+    /////////////////////////////// MENU 3 botones ///////////////////////////////
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menuoverflow, menu);
@@ -114,119 +63,105 @@ public class MenuSemanal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void obtenerPrimeros(String q, String diet, String health) {
-
-        RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, diet);
-
-        RespuestaCall.enqueue(new Callback<Respuesta>() {
-            @Override
-            public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
-
-                if (response.isSuccessful()) {
-
-                    Respuesta respuesta = response.body();
-                    ArrayList<Recipe> listaRecipe = respuesta.getHits();
-
-                    listaPrimeros = listaRecipe;
+    ///////////////////////////////////////////////////////////////////////////////
 
 
 
 
-                    //datos.setText("URL: "+ p.getRecipe().getUrl() + "\n\n Raciones: " + p.getRecipe().getYield() + "\n\n Calorías: "
-                    //        + p.getRecipe().getCalories() + "\n\n Ingrediente: " + p.getRecipe().getIngredients().get(0).getText() + "\n\n Grasas: " + p.getRecipe().getTotalNutrients().getFAT().getQuantity());
+    private void menuSemanal() {
 
-                    //listaRecipeAdapter.adicionarListaRecipe(listaRecipe);
-
-                    //lista_Recipe = listaRecipe;
-
-
-                    //Constantes.setListaRecetas(listaRecipe);
-
-                } else {
-                    Log.e(TAG, " onResponse: " + response.errorBody());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Respuesta> call, Throwable t) {
-
-                Log.e(TAG, " onFailure: " + t.getMessage());
-            }
-        });
-
-        q = "main dish";
-        obtenerSegundos(q, diet, health);
-
-    }
-
-    private void obtenerSegundos(String q, String diet, String health) {
-
-        RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, diet);
-
-        RespuestaCall.enqueue(new Callback<Respuesta>() {
-            @Override
-            public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
-
-                if (response.isSuccessful()) {
-
-                    Respuesta respuesta = response.body();
-                    ArrayList<Recipe> listaRecipe = respuesta.getHits();
-
-                    listaSegundos = listaRecipe;
-
-                    otrometodo();
-
-
-                } else {
-                    Log.e(TAG, " onResponse: " + response.errorBody());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Respuesta> call, Throwable t) {
-
-                Log.e(TAG, " onFailure: " + t.getMessage());
-            }
-        });
-
-    }
-
-
-    private void otrometodo() {
         imgLunes1 = (ImageView) findViewById(R.id.imgLunes1);
         imgLunes2 = (ImageView) findViewById(R.id.imgLunes2);
+        imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);
+        imgMartes2 = (ImageView) findViewById(R.id.imgMartes2);
+        imgMiercoles1 = (ImageView) findViewById(R.id.imgMiercoles1);
+        imgMiercoles2 = (ImageView) findViewById(R.id.imgMiercoles2);
+        imgJueves1 = (ImageView) findViewById(R.id.imgJueves1);
+        imgJueves2 = (ImageView) findViewById(R.id.imgJueves2);
+        imgViernes1 = (ImageView) findViewById(R.id.imgViernes1);
+        imgViernes2 = (ImageView) findViewById(R.id.imgViernes2);
+        imgSabado1 = (ImageView) findViewById(R.id.imgSabado1);
+        imgSabado2 = (ImageView) findViewById(R.id.imgSabado2);
+        imgDomingo1 = (ImageView) findViewById(R.id.imgDomingo1);
+        imgDomingo2 = (ImageView) findViewById(R.id.imgDomingo2);
 
 
-        Recipe p = listaPrimeros.get(0);
-        Recipe j = listaPrimeros.get(1);
+        //Recipe p = listaPrimeros.get(0);
+        //Recipe j = listaPrimeros.get(1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+
+        String imagenes[] = new String[14];
+
+        for(int i=0; i<=13; i++){
+            Cursor fila = BaseDeDatos.rawQuery("select foto from platos where id="+i, null);
+
+            if (fila.moveToFirst()) {
+
+                imagenes[i] = fila.getString(0);
+
+            }
+        }
+
+        BaseDeDatos.close();
 
         Picasso.get()
-                .load(p.getRecipe().getImage())
+                .load(imagenes[0])
                 .into(imgLunes1);
 
         Picasso.get()
-                .load(j.getRecipe().getImage())
+                .load(imagenes[1])
                 .into(imgLunes2);
 
-
-        imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);
-        imgMartes2 = (ImageView) findViewById(R.id.imgMartes2);
-
-        p = listaSegundos.get(0);
-        j = listaSegundos.get(1);
-
         Picasso.get()
-                .load(p.getRecipe().getImage())
+                .load(imagenes[2])
                 .into(imgMartes1);
 
         Picasso.get()
-                .load(j.getRecipe().getImage())
+                .load(imagenes[3])
                 .into(imgMartes2);
 
-    }
+        Picasso.get()
+                .load(imagenes[4])
+                .into(imgMiercoles1);
 
+        Picasso.get()
+                .load(imagenes[5])
+                .into(imgMiercoles2);
+
+        Picasso.get()
+                .load(imagenes[6])
+                .into(imgJueves1);
+
+        Picasso.get()
+                .load(imagenes[7])
+                .into(imgJueves2);
+
+        Picasso.get()
+                .load(imagenes[8])
+                .into(imgViernes1);
+
+        Picasso.get()
+                .load(imagenes[9])
+                .into(imgViernes2);
+
+        Picasso.get()
+                .load(imagenes[10])
+                .into(imgSabado1);
+
+        Picasso.get()
+                .load(imagenes[11])
+                .into(imgSabado2);
+
+        Picasso.get()
+                .load(imagenes[12])
+                .into(imgDomingo1);
+
+        Picasso.get()
+                .load(imagenes[13])
+                .into(imgDomingo2);
+
+    }
     /*private void otrometodo2() {
 
         imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);

@@ -93,17 +93,17 @@ public class DatosAPI extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        Cursor fila = BaseDeDatos.rawQuery("select diet, health from datosUsuario where id=01", null);
+        Cursor fila = BaseDeDatos.rawQuery("select health from datosUsuario where id=01", null);
 
 
-        String diet = "";
+        //String diet = "";
         String health = "";
 
 
         if (fila.moveToFirst()) {
 
-            diet = fila.getString(0);
-            health = fila.getString(1);
+            //diet = fila.getString(0);
+            health = fila.getString(0);
 
 
         }
@@ -112,8 +112,11 @@ public class DatosAPI extends AppCompatActivity {
         BaseDeDatos.close();
 
         String q = "first course";
+
+        String calories = "0-722";
+        Log.i(TAG, "health: "+health);
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, diet);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, calories);
 
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override

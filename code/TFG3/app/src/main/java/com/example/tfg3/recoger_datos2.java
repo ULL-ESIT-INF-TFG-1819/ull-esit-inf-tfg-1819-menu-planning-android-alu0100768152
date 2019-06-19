@@ -19,7 +19,7 @@ import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
 public class recoger_datos2 extends AppCompatActivity {
 
     private RadioButton rb_balanceada, rb_alta_proteina, rb_baja_grasas, rb_baja_carbohidratos, rbAceiteOliva, rbOtroAceite;
-    private CheckBox check_vegetariana, check_vegana, check_sin_alcohol, check_reducida_azucar, check_sin_cacahuetes, check_sin_nueces;
+    private CheckBox check_vegetariana, check_vegana, check_sin_alcohol, check_reducida_azucar, check_sin_cacahuetes, check_sin_nueces, check_balanceada;
 
     private static final String TAG = "RECETA";
 
@@ -28,10 +28,10 @@ public class recoger_datos2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recoger_datos2);
 
-        rb_balanceada = (RadioButton) findViewById(R.id.rb_balanceada);
+       /* rb_balanceada = (RadioButton) findViewById(R.id.rb_balanceada);
         rb_alta_proteina = (RadioButton) findViewById(R.id.rb_alta_proteina);
         rb_baja_grasas = (RadioButton) findViewById(R.id.rb_baja_grasas);
-        rb_baja_carbohidratos = (RadioButton) findViewById(R.id.rb_baja_carbohidratos);
+        rb_baja_carbohidratos = (RadioButton) findViewById(R.id.rb_baja_carbohidratos);*/
         rbAceiteOliva = (RadioButton) findViewById(R.id.rbAceiteOliva);
         rbOtroAceite = (RadioButton) findViewById(R.id.rbOtroAceite);
 
@@ -41,6 +41,7 @@ public class recoger_datos2 extends AppCompatActivity {
         check_reducida_azucar = (CheckBox) findViewById(R.id.check_reducida_azucar);
         check_sin_cacahuetes = (CheckBox) findViewById(R.id.check_sin_cacahuetes);
         check_sin_nueces = (CheckBox) findViewById(R.id.check_sin_nueces);
+        check_balanceada = (CheckBox) findViewById(R.id.check_balanceada);
 
 
         //poner el icono en el action Bar:
@@ -78,7 +79,7 @@ public class recoger_datos2 extends AppCompatActivity {
 
 
 
-        String Diet = "nada";
+        /*String Diet = "nada";
 
         if (rb_balanceada.isChecked() == true) {
             Diet = "balanced";
@@ -88,27 +89,30 @@ public class recoger_datos2 extends AppCompatActivity {
             Diet = "low-fat";
         }else if (rb_baja_carbohidratos.isChecked() == true) {
             Diet = "low-carb";
-        }
+        }*/
 
-        String Health = "";
+        String Health = "nada";
 
         if (check_vegetariana.isChecked() == true) {
-            Health = Health + "vegetarian";
+            Health = "vegetarian";
         }
         if (check_vegana.isChecked() == true) {
-            Health = Health + "vegan";
+            Health = "vegan";
         }
         if (check_sin_alcohol.isChecked() == true) {
-            Health = Health + "alcohol-free";
+            Health = "alcohol-free";
         }
         if (check_reducida_azucar.isChecked() == true) {
-            Health = Health + "sugar-conscious";
+            Health = "sugar-conscious";
         }
         if (check_sin_cacahuetes.isChecked() == true) {
-            Health = Health + "peanut-free";
+            Health = "peanut-free";
         }
         if (check_sin_nueces.isChecked() == true) {
-            Health = Health + "tree-nut-free";
+            Health = "tree-nut-free";
+        }
+        if (check_balanceada.isChecked() == true) {
+            Health = "alcohol-free";
         }
 
         //Constantes.setHEALTH(Health);
@@ -132,7 +136,7 @@ public class recoger_datos2 extends AppCompatActivity {
 
 
 
-        if (Diet != "nada" && aceiteOliva != "nada" ){
+        if (Health != "nada" && aceiteOliva != "nada" ){
 
             ContentValues registro = new ContentValues();
 
@@ -145,7 +149,7 @@ public class recoger_datos2 extends AppCompatActivity {
             registro.put("altura", altura);
             registro.put("peso", peso);
             registro.put("actividad", actividad);
-            registro.put("diet", Diet);
+            //registro.put("diet", Diet);
             registro.put("health", Health);
             registro.put("aceiteOliva", aceiteOliva);
            /* registro.put("kcal_dia", kcal_dia);
@@ -191,7 +195,7 @@ public class recoger_datos2 extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
 
-        Cursor fila = BaseDeDatos.rawQuery("select nombre, sexo, edad, altura, peso, actividad, diet, health, aceiteOliva from datosUsuario where id=01", null);
+        Cursor fila = BaseDeDatos.rawQuery("select nombre, sexo, edad, altura, peso, actividad, health, aceiteOliva from datosUsuario where id=01", null);
 
 
         String nombre = "";
@@ -200,7 +204,7 @@ public class recoger_datos2 extends AppCompatActivity {
         Double altura = 0.0;
         Double peso = 0.0;
         Double actividad = 0.0;
-        String diet = "";
+        //String diet = "";
         String health = "";
         String aceiteOliva = "";
 
@@ -211,9 +215,9 @@ public class recoger_datos2 extends AppCompatActivity {
             altura = Double.valueOf(fila.getString(3)).doubleValue();
             peso = Double.valueOf(fila.getString(4)).doubleValue();
             actividad = Double.valueOf(fila.getString(5)).doubleValue();
-            diet = fila.getString(6);
-            health = fila.getString(7);
-            aceiteOliva = fila.getString(8);
+            //diet = fila.getString(6);
+            health = fila.getString(6);
+            aceiteOliva = fila.getString(7);
 
 
         }
