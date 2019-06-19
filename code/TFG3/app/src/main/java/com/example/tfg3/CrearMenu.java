@@ -43,7 +43,6 @@ public class CrearMenu extends AppCompatActivity {
     private String semana[] = {"lunes","martes","miercoles","jueves","viernes",
             "sabado","domingo"};
 
-    //private String fruta[] = {"lunes","martes","miercoles","jueves","viernes","sabado","domingo"};
 
     private int id = 0;
     private int n_semana = 0;

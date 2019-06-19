@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +40,11 @@ public class MenuSemanal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_semanal);
 
+        //poner el icono en el action Bar:
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
+
         menuSemanal();
 
     }
@@ -67,7 +73,6 @@ public class MenuSemanal extends AppCompatActivity {
 
 
 
-
     private void menuSemanal() {
 
         imgLunes1 = (ImageView) findViewById(R.id.imgLunes1);
@@ -86,8 +91,6 @@ public class MenuSemanal extends AppCompatActivity {
         imgDomingo2 = (ImageView) findViewById(R.id.imgDomingo2);
 
 
-        //Recipe p = listaPrimeros.get(0);
-        //Recipe j = listaPrimeros.get(1);
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
@@ -162,22 +165,42 @@ public class MenuSemanal extends AppCompatActivity {
                 .into(imgDomingo2);
 
     }
-    /*private void otrometodo2() {
 
-        imgMartes1 = (ImageView) findViewById(R.id.imgMartes1);
-        imgMartes2 = (ImageView) findViewById(R.id.imgMartes2);
-
-        Recipe p = listaSegundos.get(0);
-        Recipe j = listaSegundos.get(1);
-
-        Picasso.get()
-                .load(p.getRecipe().getImage())
-                .into(imgMartes1);
-
-        Picasso.get()
-                .load(j.getRecipe().getImage())
-                .into(imgMartes2);
-    }*/
+    public void lunes(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "0");
+        startActivity(siguiente);
+    }
+    public void martes(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "2");
+        startActivity(siguiente);
+    }
+    public void miercoles(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "4");
+        startActivity(siguiente);
+    }
+    public void jueves(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "6");
+        startActivity(siguiente);
+    }
+    public void viernes(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "8");
+        startActivity(siguiente);
+    }
+    public void sabado(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "10");
+        startActivity(siguiente);
+    }
+    public void domingo(View view) {
+        Intent siguiente = new Intent(this, MenuDiario.class);
+        siguiente.putExtra("id", "12");
+        startActivity(siguiente);
+    }
 
 
 }

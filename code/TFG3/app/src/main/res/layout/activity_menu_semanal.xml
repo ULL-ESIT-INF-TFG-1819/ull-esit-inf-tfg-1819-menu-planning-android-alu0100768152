@@ -15,297 +15,299 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/datos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/Martes"
-                    android:textSize="24sp"
+                <Button
+                    android:id="@+id/button17"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="domingo"
+                    android:text="@string/Domingo"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgSabado1" />
+
+                <Button
+                    android:id="@+id/button16"
+                    android:layout_width="89dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="sabado"
+                    android:text="@string/Sábado"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgViernes1" />
+
+                <Button
+                    android:id="@+id/button15"
+                    android:layout_width="89dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="viernes"
+                    android:text="@string/Viernes"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgJueves1" />
+
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="77dp"
+                    android:layout_height="31dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="jueves"
+                    android:text="@string/Jueves"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgMiercoles1" />
+
+                <Button
+                    android:id="@+id/button13"
+                    android:layout_width="114dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="miercoles"
+                    android:text="@string/Miércoles"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgMartes1" />
 
                 <ImageView
                     android:id="@+id/imgMartes1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/datos"
+                    app:layout_constraintTop_toBottomOf="@+id/button12"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgMartes2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgMartes1"
-                    app:layout_constraintTop_toBottomOf="@+id/datos"
+                    app:layout_constraintTop_toBottomOf="@+id/button12"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
                     android:id="@+id/textView40"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgMartes2"
-                    app:layout_constraintTop_toBottomOf="@+id/datos" />
+                    app:layout_constraintTop_toBottomOf="@+id/button12" />
 
                 <TextView
                     android:id="@+id/textView34"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgSabado2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
-
-                <TextView
-                    android:id="@+id/textView35"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/Sábado"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgViernes1" />
+                    app:layout_constraintTop_toBottomOf="@+id/button16" />
 
                 <ImageView
                     android:id="@+id/imgSabado2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgSabado1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView35"
+                    app:layout_constraintTop_toBottomOf="@+id/button16"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgSabado1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView35"
+                    app:layout_constraintTop_toBottomOf="@+id/button16"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
                     android:id="@+id/textView32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgDomingo2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView33" />
-
-                <TextView
-                    android:id="@+id/textView33"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/Domingo"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgSabado1" />
+                    app:layout_constraintTop_toBottomOf="@+id/button17" />
 
                 <ImageView
                     android:id="@+id/imgDomingo2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgDomingo1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView33"
+                    app:layout_constraintTop_toBottomOf="@+id/button17"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgDomingo1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView33"
+                    app:layout_constraintTop_toBottomOf="@+id/button17"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgJueves2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView31" />
-
-                <TextView
-                    android:id="@+id/textView31"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/Jueves"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgMiercoles1" />
+                    app:layout_constraintTop_toBottomOf="@+id/button14" />
 
                 <ImageView
                     android:id="@+id/imgJueves2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgJueves1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView31"
+                    app:layout_constraintTop_toBottomOf="@+id/button14"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgJueves1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView31"
+                    app:layout_constraintTop_toBottomOf="@+id/button14"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
                     android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgViernes2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView29" />
-
-                <TextView
-                    android:id="@+id/textView29"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/Viernes"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgJueves1" />
+                    app:layout_constraintTop_toBottomOf="@+id/button15" />
 
                 <ImageView
                     android:id="@+id/imgViernes2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgViernes1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView29"
+                    app:layout_constraintTop_toBottomOf="@+id/button15"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgViernes1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView29"
+                    app:layout_constraintTop_toBottomOf="@+id/button15"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
                     android:id="@+id/textView26"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgLunes2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-                <TextView
-                    android:id="@+id/textView27"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/Lunes"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView36" />
+                    app:layout_constraintTop_toBottomOf="@+id/button10" />
 
                 <ImageView
                     android:id="@+id/imgLunes2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgLunes1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView27"
+                    app:layout_constraintTop_toBottomOf="@+id/button10"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgLunes1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView27"
+                    app:layout_constraintTop_toBottomOf="@+id/button10"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
                     android:id="@+id/textView24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Fruta a elección"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgMiercoles2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-                <TextView
-                    android:id="@+id/textView25"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/Miércoles"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgMartes1" />
+                    app:layout_constraintTop_toBottomOf="@+id/button13" />
 
                 <ImageView
                     android:id="@+id/imgMiercoles2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imgMiercoles1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView25"
+                    app:layout_constraintTop_toBottomOf="@+id/button13"
                     app:srcCompat="@drawable/naranja" />
 
                 <ImageView
                     android:id="@+id/imgMiercoles1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView25"
+                    app:layout_constraintTop_toBottomOf="@+id/button13"
                     app:srcCompat="@drawable/naranja" />
 
                 <TextView
@@ -319,15 +321,34 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="TextView"
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="69dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="lunes"
+                    android:text="@string/Lunes"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="88dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/cardview_shadow_end_color"
+                    android:onClick="martes"
+                    android:text="@string/Martes"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imgLunes1" />
+
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

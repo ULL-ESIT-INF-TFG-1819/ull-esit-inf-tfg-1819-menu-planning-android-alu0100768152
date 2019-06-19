@@ -42,6 +42,10 @@
     <string name="Viernes">Viernes</string>
     <string name="Sábado">Sábado</string>
     <string name="Domingo">Domingo</string>
+    <string name="Primero">Primero</string>
+    <string name="Segundo">Segundo</string>
+    <string name="Postre">Postre</string>
+    <string name="depostreelija">De postre elija la pieza de fruta que prefiera (una manzana, un platano, una mandarína, etc). </string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>

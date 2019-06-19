@@ -23,7 +23,8 @@
         <activity android:name=".DatosAPI" />
         <activity android:name=".recoger_datos2" />
         <activity android:name=".MenuSemanal" />
-        <activity android:name=".CrearMenu"></activity>
+        <activity android:name=".CrearMenu" />
+        <activity android:name=".MenuDiario"></activity>
     </application>
 
 </manifest>
