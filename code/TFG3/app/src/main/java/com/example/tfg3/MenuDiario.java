@@ -1,9 +1,11 @@
 package com.example.tfg3;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ public class MenuDiario extends AppCompatActivity {
 
     private ImageView imgPrimero, imgSegundo;
     private TextView nombrePrimero, nombreSegundo;
+    private int ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +29,13 @@ public class MenuDiario extends AppCompatActivity {
         nombreSegundo = (TextView) findViewById(R.id.nombreSegundo);
 
         Bundle datos = getIntent().getExtras();
-        int id = Integer.parseInt(datos.getString("id"));
+        ID = Integer.parseInt(datos.getString("id"));
 
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        Cursor fila = BaseDeDatos.rawQuery("select nombre, foto from platos where id="+id, null);
+        Cursor fila = BaseDeDatos.rawQuery("select nombre, foto from platos where id="+ID, null);
 
         String nombre = "";
         String foto = "";
@@ -41,8 +44,8 @@ public class MenuDiario extends AppCompatActivity {
             nombre = fila.getString(0);
             foto = fila.getString(1);
         }
-        id = id + 1;
-        Cursor fila2 = BaseDeDatos.rawQuery("select nombre, foto from platos where id="+id, null);
+        int id2 = ID + 1;
+        Cursor fila2 = BaseDeDatos.rawQuery("select nombre, foto from platos where id="+id2, null);
 
         String nombre2 = "";
         String foto2 = "";
@@ -68,5 +71,17 @@ public class MenuDiario extends AppCompatActivity {
 
     }
 
+
+    public void Bprimero(View view) {
+        Intent siguiente = new Intent(this, Plato.class);
+        siguiente.putExtra("id", ""+ID);
+        startActivity(siguiente);
+    }
+    public void Bsegundo(View view) {
+        Intent siguiente = new Intent(this, Plato.class);
+        int id = ID+1;
+        siguiente.putExtra("id", ""+id);
+        startActivity(siguiente);
+    }
 
 }

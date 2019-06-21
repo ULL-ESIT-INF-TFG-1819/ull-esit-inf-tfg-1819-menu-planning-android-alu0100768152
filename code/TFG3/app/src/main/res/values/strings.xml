@@ -45,7 +45,14 @@
     <string name="Primero">Primero</string>
     <string name="Segundo">Segundo</string>
     <string name="Postre">Postre</string>
+    <string name="Ingredientes">Ingredientes:</string>
     <string name="depostreelija">De postre elija la pieza de fruta que prefiera (una manzana, un platano, una mandarína, etc). </string>
+    <string name="Calorías">Calorías:</string>
+    <string name="Proteínas">Proteínas:</string>
+    <string name="Carbohidratos">Carbohidratos:</string>
+    <string name="Grasas">Grasas:</string>
+    <string name="Preparación">Preparación</string>
+    <string name="Tablanutricional">Tabla nutricional</string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>

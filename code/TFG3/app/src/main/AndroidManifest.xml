@@ -24,7 +24,8 @@
         <activity android:name=".recoger_datos2" />
         <activity android:name=".MenuSemanal" />
         <activity android:name=".CrearMenu" />
-        <activity android:name=".MenuDiario"></activity>
+        <activity android:name=".MenuDiario" />
+        <activity android:name=".Plato"></activity>
     </application>
 
 </manifest>

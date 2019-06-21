@@ -90,8 +90,10 @@ public class CrearMenu extends AppCompatActivity {
 
     public void Consultar(View view) throws IOException, JSONException {
 
+        Intent siguiente = new Intent(this, Plato.class);
+        startActivity(siguiente);
 
-        String jsonString = IOHelper.stringFromAsset(this, "food.json");
+       /* String jsonString = IOHelper.stringFromAsset(this, "food.json");
 
         try {
             //JSONObject jsonObject = new JSONObject(jsonString);
@@ -336,15 +338,17 @@ public class CrearMenu extends AppCompatActivity {
                             seg_platos[n_semana] = s.getRecipe().getLabel();
                         }else{
                             almacenarmenu();
-                            if(n_semana >= 6) {
-                                metodoprueba();
-                            }
+                            muerte();
+
                         }
                     }else{
                         prim_platos[n_semana] = p.getRecipe().getLabel();
                         seg_platos[n_semana] = s.getRecipe().getLabel();
                     }
 
+                    int varLegumbres=0;
+                    int varPescados=0;
+                    int varCarnes=0;
 
                     for (int i = 0; i< s.getRecipe().getIngredients().size(); i++) {
 
@@ -357,36 +361,30 @@ public class CrearMenu extends AppCompatActivity {
 
                                 if (estaLegumbre == true){
                                     if(legumbres<4){
-                                        legumbres++;
+                                        varLegumbres++;
                                     }else{
                                         almacenarmenu();
-                                        if(n_semana >= 6) {
-                                            metodoprueba();
-                                        }
+                                        break;
                                     }
                                 }
 
                                 boolean estaPescado = busqueda_pescados(parts[j].toUpperCase());
                                 if (estaPescado == true){
                                     if(pescados<4){
-                                        pescados++;
+                                        varPescados++;
                                     }else{
                                         almacenarmenu();
-                                        if(n_semana >= 6) {
-                                            metodoprueba();
-                                        }
+                                        break;
                                     }
                                 }
 
                                 boolean estaCarne = busqueda_carnes(parts[j].toUpperCase());
                                 if (estaCarne == true){
                                     if(carnes<4){
-                                        carnes++;
+                                        varCarnes++;
                                     }else{
                                         almacenarmenu();
-                                        if(n_semana >= 6) {
-                                            metodoprueba();
-                                        }
+                                        break;
                                     }
                                 }
                             } catch (IOException e) {
@@ -409,36 +407,30 @@ public class CrearMenu extends AppCompatActivity {
 
                                 if (estaLegumbre == true){
                                     if(legumbres<4){
-                                        legumbres++;
+                                        varLegumbres++;
                                     }else{
                                         almacenarmenu();
-                                        if(n_semana >= 6) {
-                                            metodoprueba();
-                                        }
+                                        break;
                                     }
                                 }
 
                                 boolean estaPescado = busqueda_pescados(parts[j].toUpperCase());
                                 if (estaPescado == true){
                                     if(pescados<4){
-                                        pescados++;
+                                        varPescados++;
                                     }else{
                                         almacenarmenu();
-                                        if(n_semana >= 6) {
-                                            metodoprueba();
-                                        }
+                                        break;
                                     }
                                 }
 
                                 boolean estaCarne = busqueda_carnes(parts[j].toUpperCase());
                                 if (estaCarne == true){
                                     if(carnes<4){
-                                        carnes++;
+                                        varCarnes++;
                                     }else{
                                         almacenarmenu();
-                                        if(n_semana >= 6) {
-                                            metodoprueba();
-                                        }
+                                        break;
                                     }
                                 }
                             } catch (IOException e) {
@@ -446,6 +438,16 @@ public class CrearMenu extends AppCompatActivity {
                             }
                         }
 
+                    }
+
+                    if(varLegumbres!=0){
+                        legumbres++;
+                    }
+                    if(varPescados!=0){
+                        pescados++;
+                    }
+                    if(varCarnes!=0){
+                        carnes++;
                     }
 
                     double Mgramos = 0;
@@ -476,9 +478,7 @@ public class CrearMenu extends AppCompatActivity {
                                 i=parts.length;
                             }else{
                                 almacenarmenu();
-                                if(n_semana >= 6) {
-                                    metodoprueba();
-                                }
+                                break;
                             }
                         }/*else{
                             almacenarmenu();
@@ -590,10 +590,13 @@ public class CrearMenu extends AppCompatActivity {
                     BaseDeDatos.close();
 
                     if(n_semana == 6){
+                        n_semana++;
                         metodoprueba();
+
                     }else{
                         n_semana = n_semana + 1;
                         almacenarmenu();
+                        muerte();
                     }
 
 
@@ -604,13 +607,21 @@ public class CrearMenu extends AppCompatActivity {
 
                 }else{
                     almacenarmenu();
+                    muerte();
                 }
             }else{
                 almacenarmenu();
+                muerte();
             }
         }else{
             almacenarmenu();
+            muerte();
+
         }
+
+    }
+
+    private void muerte(){
 
     }
 
