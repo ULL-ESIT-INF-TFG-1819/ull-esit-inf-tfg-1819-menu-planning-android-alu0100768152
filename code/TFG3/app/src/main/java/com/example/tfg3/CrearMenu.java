@@ -143,6 +143,12 @@ public class CrearMenu extends AppCompatActivity {
         //metodoprueba();
     }
 
+    public void Lista_compra(View view){
+        Intent siguiente = new Intent(this, ListaCompra.class);
+        startActivity(siguiente);
+
+    }
+
     public void Buscar(View view) {
 
         retrofit = new Retrofit.Builder()

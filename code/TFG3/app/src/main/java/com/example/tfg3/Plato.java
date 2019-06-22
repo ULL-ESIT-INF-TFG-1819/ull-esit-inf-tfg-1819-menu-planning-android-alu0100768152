@@ -1,10 +1,12 @@
 package com.example.tfg3;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,6 +24,7 @@ public class Plato extends AppCompatActivity {
     private TextView tvIngredientes, tvGrasas, tvCarbohidratos, tvProteinas, tvCalorias, tvNombre;
     private ImageView imgPlato;
     private static final String TAG = "RECETA";
+    private int ID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class Plato extends AppCompatActivity {
         tvNombre = (TextView) findViewById(R.id.tvNombre);
 
         Bundle datos = getIntent().getExtras();
-        int id= Integer.parseInt(datos.getString("id"));
+        ID = Integer.parseInt(datos.getString("id"));
 
 
 
@@ -47,7 +50,7 @@ public class Plato extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        Cursor fila3 = BaseDeDatos.rawQuery("select nombre, foto, kcal, grasas, hidratos, proteinas, raciones from platos where id="+id, null);
+        Cursor fila3 = BaseDeDatos.rawQuery("select nombre, foto, kcal, grasas, hidratos, proteinas, raciones from platos where id="+ID, null);
 
         String nombre = "";
         String foto = "";
@@ -77,7 +80,7 @@ public class Plato extends AppCompatActivity {
 
         int count = 0;
         for(int i=0; i<tamBD; i++){
-            Cursor fila = BaseDeDatos.rawQuery("select ingrediente from lista_ingredientes where id_plato="+id+" and id="+i, null);
+            Cursor fila = BaseDeDatos.rawQuery("select ingrediente from lista_ingredientes where id_plato="+ID+" and id="+i, null);
 
             if (fila.moveToFirst()) {
 
@@ -113,5 +116,17 @@ public class Plato extends AppCompatActivity {
         //lv_ingredientes.setAdapter(adapter);
 
 
+    }
+
+    public void boton_tabla(View view) {
+        Intent siguiente = new Intent(this, TablaNutrientes.class);
+        siguiente.putExtra("id", ""+ID);
+        startActivity(siguiente);
+    }
+
+    public void boton_preparacion(View view) {
+        Intent siguiente = new Intent(this, Preparacion.class);
+        siguiente.putExtra("id", ""+ID);
+        startActivity(siguiente);
     }
 }

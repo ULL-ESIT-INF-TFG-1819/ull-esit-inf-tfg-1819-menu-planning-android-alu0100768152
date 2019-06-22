@@ -25,7 +25,10 @@
         <activity android:name=".MenuSemanal" />
         <activity android:name=".CrearMenu" />
         <activity android:name=".MenuDiario" />
-        <activity android:name=".Plato"></activity>
+        <activity android:name=".Plato" />
+        <activity android:name=".TablaNutrientes" />
+        <activity android:name=".Preparacion" />
+        <activity android:name=".ListaCompra"></activity>
     </application>
 
 </manifest>

@@ -53,6 +53,8 @@
     <string name="Grasas">Grasas:</string>
     <string name="Preparación">Preparación</string>
     <string name="Tablanutricional">Tabla nutricional</string>
+    <string name="listadelacompra">Lista de la compra</string>
+    <string name="entreparentesis">Entre paréntesis se especifican las cantidades en gramos para una persona</string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>
