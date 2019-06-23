@@ -55,6 +55,13 @@
     <string name="Tablanutricional">Tabla nutricional</string>
     <string name="listadelacompra">Lista de la compra</string>
     <string name="entreparentesis">Entre paréntesis se especifican las cantidades en gramos para una persona</string>
+    <string name="despensa">Despensa</string>
+    <string name="añadiraladespensa">Añadir a la despensa</string>
+    <string name="gramos">Gramos</string>
+    <string name="anadir">Añadir</string>
+    <string name="borrar">Borrar</string>
+    <string name="modificar">Modificar</string>
+
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>

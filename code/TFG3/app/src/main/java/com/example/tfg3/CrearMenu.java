@@ -149,6 +149,12 @@ public class CrearMenu extends AppCompatActivity {
 
     }
 
+    public void despensa(View view){
+        Intent siguiente = new Intent(this, Despensa.class);
+        startActivity(siguiente);
+
+    }
+
     public void Buscar(View view) {
 
         retrofit = new Retrofit.Builder()
@@ -532,6 +538,7 @@ public class CrearMenu extends AppCompatActivity {
                         registro2.put("id_plato", id);
                         registro2.put("ingrediente", p.getRecipe().getIngredients().get(i).getText());
                         registro2.put("gramos", p.getRecipe().getIngredients().get(i).getWeight());
+                        registro2.put("tiene", "no");
 
                         if(fila.moveToFirst()) {
 
@@ -578,6 +585,7 @@ public class CrearMenu extends AppCompatActivity {
                         registro4.put("id_plato", id);
                         registro4.put("ingrediente", s.getRecipe().getIngredients().get(i).getText());
                         registro4.put("gramos", s.getRecipe().getIngredients().get(i).getWeight());
+                        registro4.put("tiene", "no");
 
                         if(fila.moveToFirst()) {
 

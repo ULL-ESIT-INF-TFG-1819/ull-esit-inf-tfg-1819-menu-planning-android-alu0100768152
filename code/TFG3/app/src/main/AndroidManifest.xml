@@ -28,7 +28,10 @@
         <activity android:name=".Plato" />
         <activity android:name=".TablaNutrientes" />
         <activity android:name=".Preparacion" />
-        <activity android:name=".ListaCompra"></activity>
+        <activity android:name=".ListaCompra" />
+        <activity android:name=".Despensa" />
+        <activity android:name=".AnadirDespensa" />
+        <activity android:name=".ModificarDespensa"></activity>
     </application>
 
 </manifest>
