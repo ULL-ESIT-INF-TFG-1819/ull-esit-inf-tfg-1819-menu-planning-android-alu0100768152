@@ -61,7 +61,7 @@
     <string name="anadir">Añadir</string>
     <string name="borrar">Borrar</string>
     <string name="modificar">Modificar</string>
-
+    <string name="check_toast">%1$d:%2$s</string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>
