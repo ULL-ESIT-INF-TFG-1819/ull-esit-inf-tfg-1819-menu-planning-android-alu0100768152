@@ -2,7 +2,6 @@ package com.example.tfg3;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
-
-import java.util.ArrayList;
 
 public class ModificarDespensa extends AppCompatActivity {
 
@@ -26,8 +23,8 @@ public class ModificarDespensa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_despensa);
 
-        mod_nombre = (EditText) findViewById(R.id.mod_nombre);
-        mod_gramos = (EditText) findViewById(R.id.mod_gramos);
+        mod_nombre = (EditText) findViewById(R.id.editText_nom);
+        mod_gramos = (EditText) findViewById(R.id.editText_gram);
 
         Bundle datos = getIntent().getExtras();
         ingrediente = datos.getString("ingrediente");
@@ -42,8 +39,8 @@ public class ModificarDespensa extends AppCompatActivity {
 
     public void modificar(View view){
 
-        mod_nombre = (EditText) findViewById(R.id.mod_nombre);
-        mod_gramos = (EditText) findViewById(R.id.mod_gramos);
+        mod_nombre = (EditText) findViewById(R.id.editText_nom);
+        mod_gramos = (EditText) findViewById(R.id.editText_gram);
 
         String ingrediente_var = mod_nombre.getText().toString();
         String gramos_text = mod_gramos.getText().toString();

@@ -31,7 +31,9 @@
         <activity android:name=".ListaCompra" />
         <activity android:name=".Despensa" />
         <activity android:name=".AnadirDespensa" />
-        <activity android:name=".ModificarDespensa"></activity>
+        <activity android:name=".ModificarDespensa" />
+        <activity android:name=".EstaEnLaDespensa" />
+        <activity android:name=".AnadirDespensa2"></activity>
     </application>
 
 </manifest>

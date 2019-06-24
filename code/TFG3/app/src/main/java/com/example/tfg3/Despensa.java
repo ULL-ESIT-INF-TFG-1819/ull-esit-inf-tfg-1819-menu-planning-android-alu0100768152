@@ -60,7 +60,7 @@ public class Despensa extends AppCompatActivity {
                 DecimalFormat formato = new DecimalFormat("#.##");
                 String var_gramos= formato.format(gramos);
 
-                gramos = Integer.parseInt(var_gramos);
+                gramos = Double.parseDouble(var_gramos);
 
                 listDatos.add(new Ingrediente_gramos(ingrediente, gramos, i)); //ingrediente+" ("+ formato.format(gramos)+" g)"
 

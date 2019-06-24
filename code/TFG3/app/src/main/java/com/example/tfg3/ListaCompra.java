@@ -93,7 +93,7 @@ public class ListaCompra extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                Intent siguiente = new Intent(ListaCompra.this, AnadirDespensa.class);
+                Intent siguiente = new Intent(ListaCompra.this, EstaEnLaDespensa.class);
                 siguiente.putExtra("id", ""+rows.get(position).getId());
                 startActivity(siguiente);
                /* Toast.makeText(ListaCompra.this,

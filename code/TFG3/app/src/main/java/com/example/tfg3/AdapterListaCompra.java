@@ -91,11 +91,37 @@ public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClic
 
         registro.put("id", getItem(position).getId());
         registro.put("id_plato", id_plato);
-        registro.put("ingrediente",ingrediente);
+        registro.put("ingrediente", ingrediente);
         registro.put("gramos", gramos);
         registro.put("tiene", tiene);
 
         BaseDeDatos.update("lista_ingredientes", registro, "id=" + getItem(position).getId(), null);
+
+        Cursor fila3 = BaseDeDatos.rawQuery("select count(*) from despensa", null);
+
+        int tamBD=0;
+        if (fila3.moveToFirst()) {
+            tamBD = Integer.parseInt(fila3.getString(0));
+        }
+
+        ContentValues registro2 = new ContentValues();
+
+        registro2.put("id", tamBD);
+        registro2.put("ingrediente", ingrediente);
+        registro2.put("gramos", gramos);
+        registro2.put("tiene", tiene);
+
+        BaseDeDatos.insert("despensa", null, registro2);
+
+       /* Cursor fila4 = BaseDeDatos.rawQuery("select id from despensa where id="+tamBD, null);
+
+        if(fila4.moveToFirst()) {
+
+            BaseDeDatos.update("despensa", registro2, "id=" + tamBD, null);
+        }else{
+            BaseDeDatos.insert("despensa", null, registro2);
+        }
+*/
         BaseDeDatos.close();
         Toast.makeText(this.getContext(),""+getItem(position).getId(), Toast.LENGTH_SHORT).show();
     }

@@ -14,17 +14,20 @@ import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
 public class AnadirDespensa extends AppCompatActivity {
 
     private EditText et_nombre, et_gramos;
-
+    private String ingrediente;
+    private String gramos_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anadir_despensa);
+
+
     }
 
     public void anadir(View view){
 
-        et_nombre = (EditText) findViewById(R.id.mod_nombre);
-        et_gramos = (EditText) findViewById(R.id.mod_gramos);
+        et_nombre = (EditText) findViewById(R.id.Nombre_id);
+        et_gramos = (EditText) findViewById(R.id.Gramos_id);
 
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
@@ -39,8 +42,8 @@ public class AnadirDespensa extends AppCompatActivity {
 
         ContentValues registro = new ContentValues();
 
-        String ingrediente = et_nombre.getText().toString();
-        String gramos_text = et_gramos.getText().toString();
+        ingrediente = et_nombre.getText().toString();
+        gramos_text = et_gramos.getText().toString();
 
         double gramos = Double.parseDouble(gramos_text);
 

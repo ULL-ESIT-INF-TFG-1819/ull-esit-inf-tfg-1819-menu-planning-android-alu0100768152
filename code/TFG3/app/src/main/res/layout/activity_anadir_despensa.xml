@@ -15,7 +15,7 @@
         android:layout_marginEnd="4dp"
         android:text="@string/gramos"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/mod_gramos"
+        app:layout_constraintEnd_toStartOf="@+id/Gramos_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -41,12 +41,12 @@
         android:layout_marginEnd="4dp"
         android:text="@string/nombre"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/mod_nombre"
+        app:layout_constraintEnd_toStartOf="@+id/Nombre_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/mod_nombre"
+        android:id="@+id/Nombre_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/mod_gramos"
+        android:id="@+id/Gramos_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -69,7 +69,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/mod_nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_id" />
 
     <Button
         android:id="@+id/button26"
@@ -84,6 +84,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mod_gramos" />
+        app:layout_constraintTop_toBottomOf="@+id/Gramos_id" />
 
 </android.support.constraint.ConstraintLayout>
