@@ -478,19 +478,25 @@ public class MenuDiario extends AppCompatActivity {
                     }
 
 
-                    Cursor fila3 = BaseDeDatos.rawQuery("select count(*) from lista_ingredientes", null);
+                    //Cursor fila3 = BaseDeDatos.rawQuery("select count(*) from lista_ingredientes", null);
 
-                    int tamBD=0;
+                   /* int tamBD=0;
                     if (fila3.moveToFirst()) {
                         tamBD = Integer.parseInt(fila3.getString(0));
-                    }
+                    }*/
 
-                    //ContentValues registro3 = new ContentValues();
-                    for(int i=0; i<tamBD; i++) {
+                   // ContentValues registro3 = new ContentValues();
+                    for(int i=0; i<ultimo_id; i++) {
                         Cursor fila4 = BaseDeDatos.rawQuery("select ingrediente from lista_ingredientes where id_plato=" + ID + " and id=" + i, null);
 
                         if (fila4.moveToFirst()) {
                             BaseDeDatos.delete("lista_ingredientes", "id="+i, null);
+                           /* registro3.put("id", i);
+                            registro3.put("id_plato", 9999);
+                            registro3.put("ingrediente", "nonee");
+                            registro3.put("gramos", "nonee");
+                            registro3.put("tiene", "nonee");
+                            BaseDeDatos.update("lista_ingredientes", registro3, "id=" + i, null);*/
                         }
                     }
 
@@ -503,15 +509,32 @@ public class MenuDiario extends AppCompatActivity {
                         registro2.put("gramos", p.getRecipe().getIngredients().get(i).getWeight());
                         registro2.put("tiene", "no");
 
-                        if(fila.moveToFirst()) {
+                        /*if(fila.moveToFirst()) {
 
                             BaseDeDatos.update("lista_ingredientes", registro2, "id=" + ultimo_id, null);
-                        }else{
-                            BaseDeDatos.insert("lista_ingredientes", null, registro2);
-                        }
+                        }else{*/
+                        BaseDeDatos.insert("lista_ingredientes", null, registro2);
+                        //}
 
                         registro2 = new ContentValues();
                         ultimo_id = ultimo_id + 1;
+                    }
+
+                    ContentValues registro5 = new ContentValues();
+
+                    Cursor fila5 = BaseDeDatos.rawQuery("select id from datos_menu where id=01", null);
+                    registro5.put("id", 01);
+                    registro5.put("legumbres", legumbres);
+                    registro5.put("pescados", pescados);
+                    registro5.put("carnes", carnes);
+                    registro5.put("huevos", huevos);
+                    registro5.put("ultimo_id", ultimo_id);
+
+                    if(fila5.moveToFirst()) {
+
+                        BaseDeDatos.update("datos_menu", registro5, "id=01", null);
+                    }else{
+                        BaseDeDatos.insert("datos_menu", null, registro5);
                     }
 
 
@@ -643,17 +666,23 @@ public class MenuDiario extends AppCompatActivity {
 
                     Cursor fila3 = BaseDeDatos.rawQuery("select count(*) from lista_ingredientes", null);
 
-                    int tamBD=0;
+                   /* int tamBD=0;
                     if (fila3.moveToFirst()) {
                         tamBD = Integer.parseInt(fila3.getString(0));
-                    }
+                    }*/
 
                     //ContentValues registro3 = new ContentValues();
-                    for(int i=0; i<tamBD; i++) {
+                    for(int i=0; i<ultimo_id; i++) {
                         Cursor fila4 = BaseDeDatos.rawQuery("select ingrediente from lista_ingredientes where id_plato=" + ID2 + " and id=" + i, null);
 
                         if (fila4.moveToFirst()) {
                             BaseDeDatos.delete("lista_ingredientes", "id="+i, null);
+                            /*registro3.put("id", i);
+                            registro3.put("id_plato", 9999);
+                            registro3.put("ingrediente", "nonee");
+                            registro3.put("gramos", "nonee");
+                            registro3.put("tiene", "nonee");
+                            BaseDeDatos.update("lista_ingredientes", registro3, "id=" + i, null);*/
                         }
                     }
 
@@ -666,17 +695,33 @@ public class MenuDiario extends AppCompatActivity {
                         registro2.put("gramos", s.getRecipe().getIngredients().get(i).getWeight());
                         registro2.put("tiene", "no");
 
-                        if(fila.moveToFirst()) {
+                        /*if(fila.moveToFirst()) {
 
                             BaseDeDatos.update("lista_ingredientes", registro2, "id=" + ultimo_id, null);
-                        }else{
-                            BaseDeDatos.insert("lista_ingredientes", null, registro2);
-                        }
+                        }else{*/
+                        BaseDeDatos.insert("lista_ingredientes", null, registro2);
+                        //}
 
                         registro2 = new ContentValues();
                         ultimo_id = ultimo_id + 1;
                     }
 
+                    ContentValues registro5 = new ContentValues();
+
+                    Cursor fila5 = BaseDeDatos.rawQuery("select id from datos_menu where id=01", null);
+                    registro5.put("id", 01);
+                    registro5.put("legumbres", legumbres);
+                    registro5.put("pescados", pescados);
+                    registro5.put("carnes", carnes);
+                    registro5.put("huevos", huevos);
+                    registro5.put("ultimo_id", ultimo_id);
+
+                    if(fila5.moveToFirst()) {
+
+                        BaseDeDatos.update("datos_menu", registro5, "id=01", null);
+                    }else{
+                        BaseDeDatos.insert("datos_menu", null, registro5);
+                    }
 
                     BaseDeDatos.close();
 

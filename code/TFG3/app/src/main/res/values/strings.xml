@@ -30,7 +30,7 @@
     <string name="sincacahuetes">Sin cacahuetes</string>
     <string name="guardar">Guardar</string>
     <string name="nombre">Nombre</string>
-    <string name="eligeunaopción">Bienvenido a REALMEAL</string>
+    <string name="eligeunaopción">Bienvenido a MEALTIME</string>
     <string name="modificardatos">Modificar datos personales</string>
     <string name="entrar">Entrar</string>
     <string name="consultarcalorias">Consultar calorías</string>
@@ -69,7 +69,7 @@
     <string name="buscarreceta">Buscar receta</string>
     <string name="buscar">Buscar</string>
     <string name="menu">Menu</string>
-
+    <string name="caloriasdiarias">Calorias diarias:</string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>

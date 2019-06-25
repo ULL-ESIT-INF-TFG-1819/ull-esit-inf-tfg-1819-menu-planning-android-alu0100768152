@@ -48,7 +48,7 @@ public class ListaCompra extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
 
-        Cursor fila2 = BaseDeDatos.rawQuery("select count(*) from lista_ingredientes", null);
+        Cursor fila2 = BaseDeDatos.rawQuery("select ultimo_id from datos_menu where id=01", null);
 
         //ArrayList<String> ingredientes = new ArrayList<String>();
 

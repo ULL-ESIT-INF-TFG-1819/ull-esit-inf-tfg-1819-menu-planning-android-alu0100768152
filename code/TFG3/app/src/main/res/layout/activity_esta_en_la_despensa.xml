@@ -39,6 +39,9 @@
         android:layout_marginBottom="24dp"
         android:onClick="Lista_compra"
         android:text="@string/anadirnuevo"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:backgroundTint="#e6a34b"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

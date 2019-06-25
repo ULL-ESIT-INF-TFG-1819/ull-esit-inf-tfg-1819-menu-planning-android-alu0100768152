@@ -15,7 +15,7 @@ import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
 
 public class Mostrar_datos extends AppCompatActivity {
 
-    private TextView tvEdad;
+    private TextView tvEdad, tv_tituloDatos, id_Calorias, id_Grasas, id_proteinas, id_Carbohidratos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,12 @@ public class Mostrar_datos extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        tvEdad = (TextView) findViewById(R.id.tvEdad);
+        //tvEdad = (TextView) findViewById(R.id.tvEdad);
+        tv_tituloDatos = (TextView) findViewById(R.id.tv_tituloDatos);
+        id_Calorias = (TextView) findViewById(R.id.id_Calorias);
+        id_Grasas = (TextView) findViewById(R.id.id_Grasas);
+        id_proteinas = (TextView) findViewById(R.id.id_proteinas);
+        id_Carbohidratos = (TextView) findViewById(R.id.id_Carbohidratos);
 
         //Integer.parseInt() Esto es para convertir un string to int
         //int edad = Integer.parseInt(getIntent().getStringExtra("actividad"));
@@ -88,12 +93,16 @@ public class Mostrar_datos extends AppCompatActivity {
         BaseDeDatos.close();
 
 
+        tv_tituloDatos.setText("Información nutricional de "+nombre+":");
+        id_Calorias.setText(kcal_dia+" Kcal");
+        id_Grasas.setText(grasas+" g");
+        id_proteinas.setText(proteinas+" g");
+        id_Carbohidratos.setText(hidratos+" g");
 
-
-        tvEdad.setText("Estas son las kcal que debes consumir al día: " + String.format("%.2f", kcal_dia) + " Kcal \n\n" +
+        /*tvEdad.setText("Estas son las kcal que debes consumir al día: " + String.format("%.2f", kcal_dia) + " Kcal \n\n" +
                 "Grasas: " + String.format("%.2f", grasas) + "g \n\n" +
                 "Proteinas: " + String.format("%.2f", proteinas) + "g \n\n " +
-                "Hidratos de carbono: " + String.format("%.2f", hidratos) + "g \n\n y tu nombre es:" + nombre);
+                "Hidratos de carbono: " + String.format("%.2f", hidratos) + "g \n\n y tu nombre es:" + nombre);*/
 
         /*
         Bundle datos = getIntent().getExtras();
@@ -138,11 +147,5 @@ public class Mostrar_datos extends AppCompatActivity {
     ///////////////////////////////////////////////////////////////////////////////
 
 
-    public void Siguiente2(View view) {
-        Intent siguiente = new Intent(this, DatosAPI.class);
-
-        startActivity(siguiente);
-
-    }
 
 }

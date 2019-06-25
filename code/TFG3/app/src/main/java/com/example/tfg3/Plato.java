@@ -75,7 +75,7 @@ public class Plato extends AppCompatActivity {
             proteinas = Double.valueOf(fila3.getString(5)).doubleValue();
             raciones = Integer.parseInt(fila3.getString(6));
         }
-        Cursor fila2 = BaseDeDatos.rawQuery("select count(*) from lista_ingredientes", null);
+        Cursor fila2 = BaseDeDatos.rawQuery("select ultimo_id from datos_menu where id=01", null);
 
         ArrayList<String> ingredientes = new ArrayList<String>();
 
@@ -86,11 +86,14 @@ public class Plato extends AppCompatActivity {
 
         int count = 0;
         for(int i=0; i<tamBD; i++){
-            Cursor fila = BaseDeDatos.rawQuery("select ingrediente from lista_ingredientes where id_plato="+ID+" and id="+i, null);
+            Cursor fila = BaseDeDatos.rawQuery("select ingrediente, gramos from lista_ingredientes where id_plato="+ID+" and id="+i, null);
 
+            String ingrediente;
+            double gramos;
             if (fila.moveToFirst()) {
-
-                ingredientes.add(fila.getString(0));
+                ingrediente=fila.getString(0);
+                gramos= Double.valueOf(fila.getString(1)).doubleValue();
+                ingredientes.add(ingrediente+" ("+gramos+" g)");
                 count++;
             }
         }
