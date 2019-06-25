@@ -5,28 +5,42 @@
     android:layout_height="match_parent"
     tools:context="com.example.tfg3.DatosAPI">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp" />
 
-    <Button
-        android:id="@+id/button6"
+    <EditText
+        android:id="@+id/etPalabra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recyclerView"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etPalabra"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="6dp"
-        android:onClick="next"
-        android:text="Button" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="33dp"
+        android:layout_toEndOf="@+id/etPalabra"
+        android:backgroundTint="#e6a34b"
+        android:onClick="buscar"
+        android:text="@string/buscar"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/etPalabra"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+
 
 </RelativeLayout>

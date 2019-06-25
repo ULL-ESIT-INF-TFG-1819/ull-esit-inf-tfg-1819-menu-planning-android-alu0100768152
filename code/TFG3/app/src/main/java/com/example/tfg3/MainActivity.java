@@ -19,21 +19,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //poner el icono en el action Bar:
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
     }
-
-
-    public void ModificarDatos(View view) {
-        Intent siguiente = new Intent(this, recoger_datos1.class);
-        startActivity(siguiente);
-    }
-
 
     public void Entrar(View view) {
-        Intent siguiente = new Intent(this, DatosAPI.class);
-        startActivity(siguiente);
-    }
-    public void otro(View view) {
         Intent siguiente = new Intent(this, CrearMenu.class);
         startActivity(siguiente);
     }

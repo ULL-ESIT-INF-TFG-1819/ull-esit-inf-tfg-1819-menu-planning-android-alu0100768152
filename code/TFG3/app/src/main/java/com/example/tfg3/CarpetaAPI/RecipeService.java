@@ -13,8 +13,8 @@ public interface RecipeService {
 
 
 
-    @GET("search?from=0&to=100")
-    Call<Respuesta> obtenerDatos(@Query("q") String q, @Query("app_id") String app_id, @Query("app_key") String app_key ,@Query("health") String health, @Query("calories") String calories);
+    @GET("search?from=0")
+    Call<Respuesta> obtenerDatos(@Query("to") String to, @Query("q") String q, @Query("app_id") String app_id, @Query("app_key") String app_key ,@Query("health") String health, @Query("calories") String calories);
 }
 
 

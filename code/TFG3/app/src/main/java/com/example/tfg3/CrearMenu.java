@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.tfg3.CarpetaAPI.ListaRecipeAdapter;
 import com.example.tfg3.CarpetaAPI.Recipe;
@@ -74,6 +75,7 @@ public class CrearMenu extends AppCompatActivity {
     private int legumbres = 0;
     private int carnes = 0;
     private int huevos = 0;
+    private ProgressBar id_progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,63 +86,37 @@ public class CrearMenu extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
+        id_progressBar = (ProgressBar)findViewById(R.id.id_progressBar);
+
+        if(id_progressBar.getVisibility() == View.VISIBLE){
+            id_progressBar.setVisibility(View.INVISIBLE);
+        }
+
+
 
 
     }
 
+    public void ModificarDatos(View view) {
+        Intent siguiente = new Intent(this, recoger_datos1.class);
+        startActivity(siguiente);
+    }
+
+    public void buscar_receta(View view) {
+        Intent siguiente = new Intent(this, DatosAPI.class);
+        startActivity(siguiente);
+    }
+
+    public void menu(View view) {
+        Intent siguiente = new Intent(this, MenuSemanal.class);
+        startActivity(siguiente);
+    }
+
     public void Consultar(View view) throws IOException, JSONException {
 
-        Intent siguiente = new Intent(this, Plato.class);
+        Intent siguiente = new Intent(this, Mostrar_datos.class);
         startActivity(siguiente);
 
-       /* String jsonString = IOHelper.stringFromAsset(this, "food.json");
-
-        try {
-            //JSONObject jsonObject = new JSONObject(jsonString);
-            JSONArray food = new JSONArray(jsonString);
-
-            String result = "";
-            for (int i = 0; i < 7413; i++) {
-                JSONObject ingredientes = food.getJSONObject(i);
-                //new Gson().fromJson(city.toString(), City.class);
-                Log.i(TAG, ingredientes.getString("Category")+" "+i);
-
-            }
-            //txtJson.setText(result);
-            Log.i(TAG, ""+food.length());
-        } catch (Exception e) {
-            Log.d(TAG, e.getLocalizedMessage());
-        }
-
-
-
-
-        /*Log.i(TAG, food.length());
-        FileInputStream fi = openFileInput("food.json");
-        BufferedInputStream bi = new BufferedInputStream(fi);
-        StringBuffer buffer = new StringBuffer();
-        Log.i(TAG, "hola22");
-
-        while (bi.available() != 0){
-            char c = (char)bi.read();
-            buffer.append(c);
-        }
-
-        Log.i(TAG, "hola333");
-        bi.close();
-        fi.close();
-
-        JSONArray jsonArray = new JSONArray(buffer.toString());
-
-        //StringBuffer foodBuffer = new StringBuffer();
-
-        for( int i=0; i<5; i++){
-            String item = jsonArray.getJSONObject(i).getString("Category");
-            Log.i(TAG, item);
-        }*/
-
-
-        //metodoprueba();
     }
 
     public void Lista_compra(View view){
@@ -156,6 +132,12 @@ public class CrearMenu extends AppCompatActivity {
     }
 
     public void Buscar(View view) {
+
+        id_progressBar = (ProgressBar)findViewById(R.id.id_progressBar);
+
+        if(id_progressBar.getVisibility() == View.INVISIBLE){
+            id_progressBar.setVisibility(View.VISIBLE);
+        }
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.edamam.com/")
@@ -228,8 +210,20 @@ public class CrearMenu extends AppCompatActivity {
         if(id == R.id.itemDatos){
             Intent siguiente = new Intent(this, recoger_datos1.class);
             startActivity(siguiente);
-        } else if(id == R.id.itemCalorias){
+        }
+
+        if(id == R.id.itemCalorias){
             Intent siguiente = new Intent(this, Mostrar_datos.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_buscar){
+            Intent siguiente = new Intent(this, DatosAPI.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_menu){
+            Intent siguiente = new Intent(this, CrearMenu.class);
             startActivity(siguiente);
         }
         return super.onOptionsItemSelected(item);
@@ -244,7 +238,7 @@ public class CrearMenu extends AppCompatActivity {
 
         String calories = "0-"+intkcal_primero;
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, calories);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
         Log.i(TAG, q);
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override
@@ -281,7 +275,7 @@ public class CrearMenu extends AppCompatActivity {
 
         String calories = "0-"+ intkcal_segundo;
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, calories);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
 
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override
@@ -786,7 +780,7 @@ public class CrearMenu extends AppCompatActivity {
     }
 
     private void metodoprueba() {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
+        /*AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
         Cursor fila = BaseDeDatos.rawQuery("select nombre, shareAs from platos where id=1", null);
@@ -813,7 +807,7 @@ public class CrearMenu extends AppCompatActivity {
         }
         BaseDeDatos.close();
 
-        Log.i(TAG, "Datos SQLite: nombre: "+nombre+" buscar: "+shareAs+ " ingrediente: "+ingrediente+ " g: "+gramos);
+        Log.i(TAG, "Datos SQLite: nombre: "+nombre+" buscar: "+shareAs+ " ingrediente: "+ingrediente+ " g: "+gramos);*/
 
         Intent siguiente = new Intent(this, MenuSemanal.class);
         startActivity(siguiente);

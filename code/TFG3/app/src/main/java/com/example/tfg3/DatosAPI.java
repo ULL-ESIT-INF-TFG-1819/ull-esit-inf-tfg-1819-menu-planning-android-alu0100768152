@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import com.example.tfg3.CarpetaAPI.Constantes;
 import com.example.tfg3.CarpetaAPI.ListaRecipeAdapter;
@@ -37,6 +38,7 @@ public class DatosAPI extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ListaRecipeAdapter listaRecipeAdapter;
+    private EditText etPalabra;
     //public ArrayList<Recipe> lista_Recipe;
 
     @Override
@@ -61,8 +63,11 @@ public class DatosAPI extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        obtenerDatos();
+        //String q = "first course";
+        //obtenerDatos(q);
     }
+
+    /////////////////////////////// MENU 3 botones ///////////////////////////////
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menuoverflow, menu);
@@ -75,19 +80,39 @@ public class DatosAPI extends AppCompatActivity {
         if(id == R.id.itemDatos){
             Intent siguiente = new Intent(this, recoger_datos1.class);
             startActivity(siguiente);
-        } else if(id == R.id.itemCalorias){
+        }
+
+        if(id == R.id.itemCalorias){
             Intent siguiente = new Intent(this, Mostrar_datos.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_buscar){
+            Intent siguiente = new Intent(this, DatosAPI.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_menu){
+            Intent siguiente = new Intent(this, CrearMenu.class);
             startActivity(siguiente);
         }
         return super.onOptionsItemSelected(item);
     }
 
+    ///////////////////////////////////////////////////////////////////////////////
+
    /* private String pasoDatos(){
         String var = "chicken";
         return var;
     }*/
+    public void buscar(View view) {
 
-    private void obtenerDatos() {
+        etPalabra = (EditText) findViewById(R.id.etPalabra);
+        String palabra = etPalabra.getText().toString();
+        obtenerDatos(palabra);
+    }
+
+    private void obtenerDatos( String q) {
 
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
@@ -111,12 +136,10 @@ public class DatosAPI extends AppCompatActivity {
         //Log.i(TAG, health);
         BaseDeDatos.close();
 
-        String q = "first course";
-
         String calories = "0-722";
         Log.i(TAG, "health: "+health);
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, calories);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos("20", q, app_id, app_key, health, calories);
 
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override
@@ -128,6 +151,7 @@ public class DatosAPI extends AppCompatActivity {
                     ArrayList<Recipe> listaRecipe = respuesta.getHits();
 
                     listaRecipeAdapter.adicionarListaRecipe(listaRecipe);
+                    Log.i(TAG, "health: ENTREEEE");
 
                     //lista_Recipe = listaRecipe;
 
@@ -148,10 +172,6 @@ public class DatosAPI extends AppCompatActivity {
 
     }
 
-    public void next(View view) {
-        Intent siguiente = new Intent(this, MenuSemanal.class);
-        //siguiente.putExtra("listaRecipe", lista_Recipe);
-        startActivity(siguiente);
-    }
+
 
 }

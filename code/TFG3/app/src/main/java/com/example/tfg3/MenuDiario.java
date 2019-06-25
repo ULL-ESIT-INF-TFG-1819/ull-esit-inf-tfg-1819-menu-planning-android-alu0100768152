@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,7 +39,7 @@ public class MenuDiario extends AppCompatActivity {
     private ImageView imgPrimero, imgSegundo;
     private TextView nombrePrimero, nombreSegundo;
     private int ID;
-    private int ID2 = ID+1;
+    private int ID2;
     private Retrofit retrofit;
     private String health = "";
     private double kcal_dia = 0;
@@ -69,9 +71,47 @@ public class MenuDiario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_diario);
 
+        //poner el icono en el action Bar:
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         mostrar_platos();
 
     }
+
+    /////////////////////////////// MENU 3 botones ///////////////////////////////
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menuoverflow, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if(id == R.id.itemDatos){
+            Intent siguiente = new Intent(this, recoger_datos1.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.itemCalorias){
+            Intent siguiente = new Intent(this, Mostrar_datos.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_buscar){
+            Intent siguiente = new Intent(this, DatosAPI.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_menu){
+            Intent siguiente = new Intent(this, CrearMenu.class);
+            startActivity(siguiente);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////
 
     private void mostrar_platos() {
         imgPrimero = (ImageView) findViewById(R.id.imgPrimero);
@@ -81,7 +121,7 @@ public class MenuDiario extends AppCompatActivity {
 
         Bundle datos = getIntent().getExtras();
         ID = Integer.parseInt(datos.getString("id"));
-
+        ID2 = ID +1;
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
@@ -272,7 +312,7 @@ public class MenuDiario extends AppCompatActivity {
 
         String calories = "0-"+intkcal_primero;
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, calories);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
         Log.i(TAG, q);
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override
@@ -309,7 +349,7 @@ public class MenuDiario extends AppCompatActivity {
 
         String calories = "0-"+ intkcal_segundo;
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos(q, app_id, app_key, health, calories);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
 
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override

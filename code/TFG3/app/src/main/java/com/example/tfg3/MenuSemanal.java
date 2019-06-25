@@ -62,8 +62,20 @@ public class MenuSemanal extends AppCompatActivity {
         if(id == R.id.itemDatos){
             Intent siguiente = new Intent(this, recoger_datos1.class);
             startActivity(siguiente);
-        } else if(id == R.id.itemCalorias){
+        }
+
+        if(id == R.id.itemCalorias){
             Intent siguiente = new Intent(this, Mostrar_datos.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_buscar){
+            Intent siguiente = new Intent(this, DatosAPI.class);
+            startActivity(siguiente);
+        }
+
+        if(id == R.id.id_menu){
+            Intent siguiente = new Intent(this, CrearMenu.class);
             startActivity(siguiente);
         }
         return super.onOptionsItemSelected(item);

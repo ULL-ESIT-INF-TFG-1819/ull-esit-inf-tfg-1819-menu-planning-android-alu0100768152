@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TFG</string>
+    <string name="app_name">MEALTIME</string>
     <string name="Rellenalossiguientesdatospersonales">Rellena los siguientes datos personales:</string>
     <string name="Sexo">Sexo:</string>
     <string name="hombre">Hombre</string>
@@ -67,6 +67,9 @@
     <string name="anadirnuevo">Añadir nuevo</string>
     <string name="seleccioneunadelassiguientes">Seleccione una de las siguientes opciones:</string>
     <string name="buscarreceta">Buscar receta</string>
+    <string name="buscar">Buscar</string>
+    <string name="menu">Menu</string>
+
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>
