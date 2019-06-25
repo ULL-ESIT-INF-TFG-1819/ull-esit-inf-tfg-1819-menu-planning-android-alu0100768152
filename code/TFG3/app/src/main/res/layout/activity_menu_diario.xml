@@ -44,7 +44,6 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="8dp"
-                    android:background="?attr/actionBarDivider"
                     android:text="@string/Postre"
                     android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +54,6 @@
                     android:id="@+id/textView19"
                     android:layout_width="338dp"
                     android:layout_height="75dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="50dp"
                     android:text="@string/depostreelija"
@@ -70,9 +68,9 @@
                     android:id="@+id/nombreSegundo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:text="TextView"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -105,9 +103,9 @@
                     android:id="@+id/nombrePrimero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:text="TextView"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +126,28 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button28"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@android:drawable/ic_menu_rotate"
+                    android:onClick="recalcular_primero"
+                    app:layout_constraintStart_toEndOf="@+id/button11"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button29"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="44dp"
+                    android:background="@android:drawable/ic_menu_rotate"
+                    android:onClick="recalcular_segundo"
+                    app:layout_constraintStart_toEndOf="@+id/button20"
+                    app:layout_constraintTop_toBottomOf="@+id/nombrePrimero" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

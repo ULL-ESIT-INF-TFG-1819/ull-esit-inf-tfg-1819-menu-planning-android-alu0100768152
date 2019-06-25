@@ -30,8 +30,8 @@
     <string name="sincacahuetes">Sin cacahuetes</string>
     <string name="guardar">Guardar</string>
     <string name="nombre">Nombre</string>
-    <string name="eligeunaopción">Hola elige una opción:</string>
-    <string name="modificardatos">Modificar datos</string>
+    <string name="eligeunaopción">Bienvenido a REALMEAL</string>
+    <string name="modificardatos">Modificar datos personales</string>
     <string name="entrar">Entrar</string>
     <string name="consultarcalorias">Consultar calorías</string>
     <string name="MenúSemanal">Menú Semanal</string>
@@ -65,6 +65,8 @@
     <string name="estaenladespensa">¿Está en la despensa?</string>
     <string name="sielingredienteseencuentra">Si el ingrediente se encuentra en la despensa seleccionelo:</string>
     <string name="anadirnuevo">Añadir nuevo</string>
+    <string name="seleccioneunadelassiguientes">Seleccione una de las siguientes opciones:</string>
+    <string name="buscarreceta">Buscar receta</string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>

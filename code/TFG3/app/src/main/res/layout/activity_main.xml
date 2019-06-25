@@ -26,6 +26,8 @@
         android:layout_marginEnd="8dp"
         android:onClick="ModificarDatos"
         android:text="@string/modificardatos"
+        android:textColor="@android:color/white"
+        app:backgroundTint="#e28200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />

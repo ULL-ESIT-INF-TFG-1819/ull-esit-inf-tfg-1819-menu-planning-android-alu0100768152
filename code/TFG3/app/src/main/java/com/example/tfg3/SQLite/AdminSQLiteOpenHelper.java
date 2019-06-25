@@ -15,6 +15,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         BaseDeDatos.execSQL("create table platos(id int primary key, dia text, nombre text, foto text, url text, shareAs text, raciones int, calorias real, kcal real, grasas real, hidratos real, proteinas real)");
         BaseDeDatos.execSQL("create table lista_ingredientes(id int primary key, id_plato int, ingrediente text, gramos real, tiene text, foreign key(id_plato) references platos(id))");
         BaseDeDatos.execSQL("create table despensa(id int primary key, ingrediente text, gramos real, tiene text)");
+        BaseDeDatos.execSQL("create table datos_menu(id int primary key, legumbres int, pescados int, carnes int, huevos int, ultimo_id int)");
     }
 
     @Override

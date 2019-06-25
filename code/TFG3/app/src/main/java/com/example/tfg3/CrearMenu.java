@@ -320,15 +320,14 @@ public class CrearMenu extends AppCompatActivity {
         Recipe p = listaPrimeros.get(random1);
         Recipe s = listaSegundos.get(random2);
 
+        float grasas_prim = (p.getRecipe().getTotalNutrients().getFAT().getQuantity() / p.getRecipe().getYield());
+        float grasas_seg = (s.getRecipe().getTotalNutrients().getFAT().getQuantity() / s.getRecipe().getYield());
 
-        float grasas_prim = p.getRecipe().getTotalNutrients().getFAT().getQuantity();
-        float grasas_seg = s.getRecipe().getTotalNutrients().getFAT().getQuantity();
+        float proteinas_prim = (p.getRecipe().getTotalNutrients().getPROCNT().getQuantity() / p.getRecipe().getYield());
+        float proteinas_seg = (s.getRecipe().getTotalNutrients().getPROCNT().getQuantity() / s.getRecipe().getYield());
 
-        float proteinas_prim = p.getRecipe().getTotalNutrients().getPROCNT().getQuantity();
-        float proteinas_seg = s.getRecipe().getTotalNutrients().getPROCNT().getQuantity();
-
-        float hidratos_prim = p.getRecipe().getTotalNutrients().getCHOCDF().getQuantity();
-        float hidratos_seg = s.getRecipe().getTotalNutrients().getCHOCDF().getQuantity();
+        float hidratos_prim = (p.getRecipe().getTotalNutrients().getCHOCDF().getQuantity() / p.getRecipe().getYield());
+        float hidratos_seg = (s.getRecipe().getTotalNutrients().getCHOCDF().getQuantity() / s.getRecipe().getYield());
 
 
         //Log.i(TAG, "Grasas Tiene: "+ grasas_prim+" + "+grasas_seg + " y son " + grasas);
@@ -361,6 +360,7 @@ public class CrearMenu extends AppCompatActivity {
                     int varLegumbres=0;
                     int varPescados=0;
                     int varCarnes=0;
+                    int varHuevos=0;
 
                     for (int i = 0; i< s.getRecipe().getIngredients().size(); i++) {
 
@@ -369,6 +369,16 @@ public class CrearMenu extends AppCompatActivity {
 
                         for (int j = 0; j < parts.length; j++) {
                             try {
+
+                                if (parts[j].toUpperCase().equals("egg") || parts[j].toUpperCase().equals("eggs")){
+                                    if(huevos<4){
+                                        varHuevos++;
+                                    }else{
+                                        almacenarmenu();
+                                        break;
+                                    }
+                                }
+
                                 boolean estaLegumbre = busqueda_legumbres(parts[j].toUpperCase());
 
                                 if (estaLegumbre == true){
@@ -399,6 +409,8 @@ public class CrearMenu extends AppCompatActivity {
                                         break;
                                     }
                                 }
+
+
                             } catch (IOException e) {
                                 Log.i(TAG, "ERROR");
                             }
@@ -415,6 +427,16 @@ public class CrearMenu extends AppCompatActivity {
 
                         for (int j = 0; j < parts.length; j++) {
                             try {
+
+                                if (parts[j].toUpperCase().equals("egg") || parts[j].toUpperCase().equals("eggs")){
+                                    if(huevos<4){
+                                        varHuevos++;
+                                    }else{
+                                        almacenarmenu();
+                                        break;
+                                    }
+                                }
+
                                 boolean estaLegumbre = busqueda_legumbres(parts[j].toUpperCase());
 
                                 if (estaLegumbre == true){
@@ -445,6 +467,8 @@ public class CrearMenu extends AppCompatActivity {
                                         break;
                                     }
                                 }
+
+
                             } catch (IOException e) {
                                 Log.i(TAG, "ERROR");
                             }
@@ -460,6 +484,9 @@ public class CrearMenu extends AppCompatActivity {
                     }
                     if(varCarnes!=0){
                         carnes++;
+                    }
+                    if(varHuevos!=0){
+                        huevos++;
                     }
 
                     double Mgramos = 0;
@@ -599,6 +626,23 @@ public class CrearMenu extends AppCompatActivity {
                     }
 
                     id = id + 1;
+
+                    ContentValues registro5 = new ContentValues();
+
+                    Cursor fila5 = BaseDeDatos.rawQuery("select id from datos_menu where id=01", null);
+                    registro5.put("id", 01);
+                    registro5.put("legumbres", legumbres);
+                    registro5.put("pescados", pescados);
+                    registro5.put("carnes", carnes);
+                    registro5.put("huevos", huevos);
+                    registro5.put("ultimo_id", id_ing);
+
+                    if(fila5.moveToFirst()) {
+
+                        BaseDeDatos.update("datos_menu", registro5, "id=01", null);
+                    }else{
+                        BaseDeDatos.insert("datos_menu", null, registro5);
+                    }
 
 
                     BaseDeDatos.close();
