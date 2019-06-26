@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.tfg3.CarpetaAPI.ListaRecipeAdapter;
 import com.example.tfg3.CarpetaAPI.Recipe;
@@ -76,6 +77,7 @@ public class CrearMenu extends AppCompatActivity {
     private int carnes = 0;
     private int huevos = 0;
     private ProgressBar id_progressBar;
+    private TextView tv_hola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,21 @@ public class CrearMenu extends AppCompatActivity {
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         id_progressBar = (ProgressBar)findViewById(R.id.id_progressBar);
+        tv_hola = (TextView)findViewById(R.id.tv_hola);
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+
+        Cursor fila = BaseDeDatos.rawQuery("select nombre from datosUsuario where id=01", null);
+
+        String nombre="";
+        if (fila.moveToFirst()) {
+
+            nombre = fila.getString(0);
+
+        }
+
+        tv_hola.setText("Hola "+nombre+" ¿Qué deseas hacer?");
 
         if(id_progressBar.getVisibility() == View.VISIBLE){
             id_progressBar.setVisibility(View.INVISIBLE);

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MEALTIME</string>
+    <string name="app_name">MealTime</string>
     <string name="Rellenalossiguientesdatospersonales">Rellena los siguientes datos personales:</string>
     <string name="Sexo">Sexo:</string>
     <string name="hombre">Hombre</string>
