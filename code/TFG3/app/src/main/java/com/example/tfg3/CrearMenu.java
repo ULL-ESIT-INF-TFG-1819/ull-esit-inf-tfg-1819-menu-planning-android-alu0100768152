@@ -539,6 +539,7 @@ public class CrearMenu extends AppCompatActivity {
                     registro.put("grasas", p.getRecipe().getTotalNutrients().getFAT().getQuantity());
                     registro.put("hidratos", p.getRecipe().getTotalNutrients().getCHOCDF().getQuantity());
                     registro.put("proteinas", p.getRecipe().getTotalNutrients().getPROCNT().getQuantity());
+                    registro.put("hecho", "no");
 
 
                     Cursor fila = BaseDeDatos.rawQuery("select id from platos where id="+id, null);
@@ -589,6 +590,7 @@ public class CrearMenu extends AppCompatActivity {
                     registro3.put("grasas", s.getRecipe().getTotalNutrients().getFAT().getQuantity());
                     registro3.put("hidratos", s.getRecipe().getTotalNutrients().getCHOCDF().getQuantity());
                     registro3.put("proteinas", s.getRecipe().getTotalNutrients().getPROCNT().getQuantity());
+                    registro3.put("hecho", "no");
 
 
                     if(fila.moveToFirst()) {

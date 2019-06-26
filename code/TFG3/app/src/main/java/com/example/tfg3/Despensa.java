@@ -1,5 +1,6 @@
 package com.example.tfg3;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,20 +42,66 @@ public class Despensa extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-
         Cursor fila2 = BaseDeDatos.rawQuery("select count(*) from despensa", null);
-
-        ArrayList<Ingrediente_gramos> listDatos = new ArrayList<Ingrediente_gramos>(); //= new ArrayList<Ingrediente_gramos>()
-
-        int tamBD=0;
+        int tamDesp=0;
         if (fila2.moveToFirst()) {
-            tamBD = Integer.parseInt(fila2.getString(0));
+            tamDesp = Integer.parseInt(fila2.getString(0));
         }
 
+        Cursor fila3 = BaseDeDatos.rawQuery("select ultimo_id from datos_menu where id=01", null);
+
+        int taming=0;
+        if (fila3.moveToFirst()) {
+            taming = Integer.parseInt(fila3.getString(0));
+        }
+
+        int id_plato;
         String ingrediente;
         double gramos;
 
-        for(int i=0; i<tamBD; i++){
+        for(int j=0; j<taming; j++){
+            Cursor fila = BaseDeDatos.rawQuery("select id_plato, ingrediente, gramos from lista_ingredientes where id="+j + " and tiene='si'", null);
+
+            if (fila.moveToFirst()) {
+                id_plato = Integer.parseInt(fila.getString(0));
+                ingrediente = fila.getString(1);
+                gramos = Double.valueOf(fila.getString(2)).doubleValue();
+
+                Cursor fila4 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato+" and hecho='si'", null);
+
+                if (fila4.moveToFirst()) {
+                    for (int i = 0; i < tamDesp; i++) {
+                        Cursor fila5 = BaseDeDatos.rawQuery("select id from despensa where id=" + i + " and ingrediente=" + "'" + ingrediente + "' and gramos=" + gramos, null); //+ " and tiene=si"
+
+                        int id;
+                        if (fila5.moveToFirst()) {
+                            id = Integer.parseInt(fila5.getString(0));
+
+                            ContentValues registro = new ContentValues();
+
+                            registro.put("id", id);
+                            registro.put("ingrediente", ingrediente);
+                            registro.put("gramos", gramos);
+                            registro.put("tiene", "no");
+                            BaseDeDatos.update("despensa", registro, "id=" + id, null);
+                        }
+
+                        //ingredientes.add(ingrediente+" ("+ formato.format(gramos)+" g)");
+                    }
+                }
+            }
+        }
+
+
+
+        ArrayList<Ingrediente_gramos> listDatos = new ArrayList<Ingrediente_gramos>(); //= new ArrayList<Ingrediente_gramos>()
+
+
+
+       // String ingrediente;
+       // double gramos;
+
+        for(int i=0; i<tamDesp; i++){
             Cursor fila = BaseDeDatos.rawQuery("select ingrediente, gramos from despensa where id="+i + " and tiene='si'", null); //+ " and tiene=si"
 
             if (fila.moveToFirst()) {

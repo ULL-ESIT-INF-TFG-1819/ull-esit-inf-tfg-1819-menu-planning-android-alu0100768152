@@ -66,29 +66,41 @@ public class ListaCompra extends AppCompatActivity {
         rows = new ArrayList<Row>();
         Row row = null;
 
-        for(int i=0; i<tamBD; i++){
-            Cursor fila = BaseDeDatos.rawQuery("select id_plato, ingrediente, gramos from lista_ingredientes where id="+i + " and tiene='no'", null);
+
+       /* for(int i=0; i<14; i++){
+
+            Cursor fila4 = BaseDeDatos.rawQuery("select id from platos where id="+i + " and hecho='no'", null);
+            int id;
+            if (fila4.moveToFirst()) {
+                id = Integer.parseInt(fila4.getString(0));*/
+        for(int j=0; j<tamBD; j++){
+            Cursor fila = BaseDeDatos.rawQuery("select id_plato, ingrediente, gramos from lista_ingredientes where id="+j + " and tiene='no'", null);
 
             if (fila.moveToFirst()) {
                 id_plato = Integer.parseInt(fila.getString(0));
                 ingrediente = fila.getString(1);
                 gramos = Double.valueOf(fila.getString(2)).doubleValue();
 
-                Cursor fila3 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato, null);
+                Cursor fila3 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato+" and hecho='no'", null);
 
                 if (fila3.moveToFirst()) {
                     raciones = Integer.parseInt(fila3.getString(0));
+                    row = new Row();
+                    gramos = gramos/raciones;
+                    DecimalFormat formato = new DecimalFormat("#.##");
+                    row.setTitle(ingrediente+" ("+ formato.format(gramos)+" g)");
+                    row.setId(j);
+                    rows.add(row);
                 }
-                row = new Row();
-                gramos = gramos/raciones;
-                DecimalFormat formato = new DecimalFormat("#.##");
-                row.setTitle(ingrediente+" ("+ formato.format(gramos)+" g)");
-                row.setId(i);
-                rows.add(row);
+
                 //ingredientes.add(ingrediente+" ("+ formato.format(gramos)+" g)");
 
             }
         }
+
+            //}
+
+        //}
         BaseDeDatos.close();
 
         listCompra.setAdapter(new AdapterListaCompra(this, rows));

@@ -21,6 +21,90 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <Switch
+                    android:id="@+id/switch7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView32"
+                    app:layout_constraintTop_toBottomOf="@+id/button17"
+                    tools:checked="false" />
+
+                <Switch
+                    android:id="@+id/switch6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView34"
+                    app:layout_constraintTop_toBottomOf="@+id/button16"
+                    tools:checked="false" />
+
+                <Switch
+                    android:id="@+id/switch5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView28"
+                    app:layout_constraintTop_toBottomOf="@+id/button15"
+                    tools:checked="false" />
+
+                <Switch
+                    android:id="@+id/switch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView30"
+                    app:layout_constraintTop_toBottomOf="@+id/button14"
+                    tools:checked="false" />
+
+                <Switch
+                    android:id="@+id/switch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView24"
+                    app:layout_constraintTop_toBottomOf="@+id/button13"
+                    tools:checked="false" />
+
+                <Switch
+                    android:id="@+id/switch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView40"
+                    app:layout_constraintTop_toBottomOf="@+id/button12"
+                    tools:checked="false" />
+
                 <Button
                     android:id="@+id/button17"
                     android:layout_width="100dp"
@@ -348,6 +432,83 @@
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imgLunes1" />
+
+                <ImageView
+                    android:id="@+id/sombra1"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="60dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
+
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:onClick="hecho1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView26"
+                    app:layout_constraintTop_toBottomOf="@+id/button10"
+                    tools:checked="false" />
+
+                <ImageView
+                    android:id="@+id/sombra2"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="196dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
+
+                <ImageView
+                    android:id="@+id/sombra3"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="332dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
+
+                <ImageView
+                    android:id="@+id/sombra4"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="472dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
+
+                <ImageView
+                    android:id="@+id/sombra5"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="600dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
+
+                <ImageView
+                    android:id="@+id/sombra6"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="728dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
+
+                <ImageView
+                    android:id="@+id/sombra7"
+                    android:layout_width="351dp"
+                    android:layout_height="169dp"
+                    android:layout_marginTop="856dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fondoet" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

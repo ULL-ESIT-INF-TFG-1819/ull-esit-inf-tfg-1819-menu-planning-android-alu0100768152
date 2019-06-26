@@ -466,6 +466,7 @@ public class MenuDiario extends AppCompatActivity {
                     registro.put("grasas", p.getRecipe().getTotalNutrients().getFAT().getQuantity());
                     registro.put("hidratos", p.getRecipe().getTotalNutrients().getCHOCDF().getQuantity());
                     registro.put("proteinas", p.getRecipe().getTotalNutrients().getPROCNT().getQuantity());
+                    registro.put("hecho", "no");
 
 
                     Cursor fila = BaseDeDatos.rawQuery("select id from platos where id="+ID, null);
@@ -652,6 +653,7 @@ public class MenuDiario extends AppCompatActivity {
                     registro.put("grasas", s.getRecipe().getTotalNutrients().getFAT().getQuantity());
                     registro.put("hidratos", s.getRecipe().getTotalNutrients().getCHOCDF().getQuantity());
                     registro.put("proteinas", s.getRecipe().getTotalNutrients().getPROCNT().getQuantity());
+                    registro.put("hecho", "no");
 
 
                     Cursor fila = BaseDeDatos.rawQuery("select id from platos where id="+ID2, null);
