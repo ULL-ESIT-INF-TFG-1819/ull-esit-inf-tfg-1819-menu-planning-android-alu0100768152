@@ -93,7 +93,7 @@ public class Mostrar_datos extends AppCompatActivity {
         BaseDeDatos.close();
 
 
-        tv_tituloDatos.setText("Información nutricional de "+nombre+":");
+        tv_tituloDatos.setText(nombre+"'s nutritional information:");
         id_Calorias.setText(kcal_dia+" Kcal");
         id_Grasas.setText(grasas+" g");
         id_proteinas.setText(proteinas+" g");

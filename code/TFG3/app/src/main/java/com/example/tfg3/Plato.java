@@ -93,7 +93,9 @@ public class Plato extends AppCompatActivity {
             if (fila.moveToFirst()) {
                 ingrediente=fila.getString(0);
                 gramos= Double.valueOf(fila.getString(1)).doubleValue();
-                ingredientes.add(ingrediente+" ("+gramos+" g)");
+                gramos = gramos/raciones;
+                DecimalFormat formato = new DecimalFormat("#.##");
+                ingredientes.add(ingrediente+" ("+formato.format(gramos)+" g)");
                 count++;
             }
         }

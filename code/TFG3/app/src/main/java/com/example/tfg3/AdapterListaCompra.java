@@ -65,6 +65,8 @@ public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClic
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this.getContext(), "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
+
+
         Cursor fila = BaseDeDatos.rawQuery("select id_plato, ingrediente, gramos from lista_ingredientes where id="+getItem(position).getId(), null);
 
         int id_plato = 0;
@@ -79,6 +81,14 @@ public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClic
             gramos = Double.valueOf(fila.getString(2)).doubleValue();
         }
 
+        Cursor fila4 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato , null);
+
+        int raciones = 0;
+        if(fila4.moveToFirst()) {
+            raciones = Integer.parseInt(fila4.getString(0));
+        }
+
+
         if(parts[1].equals("true")){
             tiene="si";
         }
@@ -88,6 +98,8 @@ public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClic
         }
 
         ContentValues registro = new ContentValues();
+
+
 
         registro.put("id", getItem(position).getId());
         registro.put("id_plato", id_plato);
@@ -105,10 +117,10 @@ public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClic
         }
 
         ContentValues registro2 = new ContentValues();
-
+        double gram=gramos/raciones;
         registro2.put("id", tamBD);
         registro2.put("ingrediente", ingrediente);
-        registro2.put("gramos", gramos);
+        registro2.put("gramos", gram);
         registro2.put("tiene", tiene);
 
         BaseDeDatos.insert("despensa", null, registro2);

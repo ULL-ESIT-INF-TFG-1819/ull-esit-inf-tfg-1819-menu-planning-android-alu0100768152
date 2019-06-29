@@ -39,16 +39,29 @@ public class AnadirDespensa2 extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "datos", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        Cursor fila4 = BaseDeDatos.rawQuery("select ingrediente, gramos from lista_ingredientes where id="+id, null);
+        Cursor fila4 = BaseDeDatos.rawQuery("select id_plato, ingrediente, gramos from lista_ingredientes where id="+id, null);
+
+        int id_plato= 0;
         if (fila4.moveToFirst()) {
-            ingrediente = fila4.getString(0);
-            gramos_text = fila4.getString(1);
+            id_plato = Integer.parseInt(fila4.getString(0));
+            ingrediente = fila4.getString(1);
+            gramos_text = fila4.getString(2);
+        }
+
+        Cursor fila5 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato, null);
+        int raciones=0;
+        if (fila5.moveToFirst()) {
+            raciones=Integer.parseInt(fila5.getString(0));
         }
 
         BaseDeDatos.close();
 
+        double gramos=  Double.parseDouble(gramos_text);
+
+        gramos = gramos/raciones;
+
         et_nombre.setText(ingrediente);
-        et_gramos.setText(gramos_text);
+        et_gramos.setText(""+gramos);
 
     }
 

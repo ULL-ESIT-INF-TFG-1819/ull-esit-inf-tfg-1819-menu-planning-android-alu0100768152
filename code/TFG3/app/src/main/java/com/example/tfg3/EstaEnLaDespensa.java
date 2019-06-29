@@ -155,11 +155,22 @@ public class EstaEnLaDespensa extends AppCompatActivity {
         if (fila2.moveToFirst()) {
             gramos = Double.valueOf(fila2.getString(0)).doubleValue();
         }
-        Cursor fila3 = BaseDeDatos.rawQuery("select gramos from lista_ingredientes where id="+id, null);
+        Cursor fila3 = BaseDeDatos.rawQuery("select id_plato, gramos from lista_ingredientes where id="+id, null);
         double gramos_lista=0.0;
+        int id_plato1=0;
         if (fila3.moveToFirst()) {
-            gramos_lista = Double.valueOf(fila3.getString(0)).doubleValue();
+            id_plato1 = Integer.parseInt(fila3.getString(0));
+            gramos_lista = Double.valueOf(fila3.getString(1)).doubleValue();
         }
+
+        Cursor fila4 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato1, null);
+        int raciones=0;
+        if (fila4.moveToFirst()) {
+            raciones=Integer.parseInt(fila4.getString(0));
+        }
+
+
+        gramos_lista = gramos_lista / raciones;
 
         if(gramos_lista<=gramos){
 

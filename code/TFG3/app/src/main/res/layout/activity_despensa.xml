@@ -37,7 +37,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="20dp"
         android:onClick="anadir"
-        android:text="Añadir"
+        android:text="@string/anadir"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:backgroundTint="#e6a34b" />

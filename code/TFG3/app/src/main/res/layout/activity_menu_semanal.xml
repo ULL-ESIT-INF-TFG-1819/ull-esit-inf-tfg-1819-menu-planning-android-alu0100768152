@@ -107,9 +107,9 @@
 
                 <Button
                     android:id="@+id/button17"
-                    android:layout_width="100dp"
+                    android:layout_width="0dp"
                     android:layout_height="35dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="11dp"
                     android:layout_marginTop="24dp"
                     android:background="@color/cardview_shadow_end_color"
                     android:onClick="domingo"
@@ -121,7 +121,7 @@
 
                 <Button
                     android:id="@+id/button16"
-                    android:layout_width="89dp"
+                    android:layout_width="0dp"
                     android:layout_height="27dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
@@ -135,9 +135,9 @@
 
                 <Button
                     android:id="@+id/button15"
-                    android:layout_width="89dp"
+                    android:layout_width="0dp"
                     android:layout_height="27dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="24dp"
                     android:background="@color/cardview_shadow_end_color"
                     android:onClick="viernes"
@@ -149,7 +149,7 @@
 
                 <Button
                     android:id="@+id/button14"
-                    android:layout_width="77dp"
+                    android:layout_width="0dp"
                     android:layout_height="31dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
@@ -163,7 +163,7 @@
 
                 <Button
                     android:id="@+id/button13"
-                    android:layout_width="114dp"
+                    android:layout_width="0dp"
                     android:layout_height="32dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
@@ -201,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgMartes2"
                     app:layout_constraintTop_toBottomOf="@+id/button12" />
@@ -212,7 +212,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgSabado2"
                     app:layout_constraintTop_toBottomOf="@+id/button16" />
@@ -243,7 +243,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgDomingo2"
                     app:layout_constraintTop_toBottomOf="@+id/button17" />
@@ -276,7 +276,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgJueves2"
                     app:layout_constraintTop_toBottomOf="@+id/button14" />
@@ -307,7 +307,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgViernes2"
                     app:layout_constraintTop_toBottomOf="@+id/button15" />
@@ -338,7 +338,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgLunes2"
                     app:layout_constraintTop_toBottomOf="@+id/button10" />
@@ -369,7 +369,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
-                    android:text="Fruta a elección"
+                    android:text="@string/frutaaeleccion"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/imgMiercoles2"
                     app:layout_constraintTop_toBottomOf="@+id/button13" />
@@ -407,7 +407,7 @@
 
                 <Button
                     android:id="@+id/button10"
-                    android:layout_width="69dp"
+                    android:layout_width="0dp"
                     android:layout_height="34dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
@@ -421,7 +421,7 @@
 
                 <Button
                     android:id="@+id/button12"
-                    android:layout_width="88dp"
+                    android:layout_width="0dp"
                     android:layout_height="34dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"

@@ -52,6 +52,7 @@ public class CrearMenu extends AppCompatActivity {
 
     private String health = "";
     private double kcal_dia = 0;
+    private double kcal_min = 0;
     private double grasas;
     private double proteinas;
     private double hidratos;
@@ -103,7 +104,7 @@ public class CrearMenu extends AppCompatActivity {
 
         }
 
-        tv_hola.setText("Hola "+nombre+" ¿Qué deseas hacer?");
+        tv_hola.setText("Hello "+nombre+", what do you want to do?");
 
         if(id_progressBar.getVisibility() == View.VISIBLE){
             id_progressBar.setVisibility(View.INVISIBLE);
@@ -196,7 +197,7 @@ public class CrearMenu extends AppCompatActivity {
 
 
 
-
+        kcal_min = kcal_dia * 0.35;
         kcal_dia = kcal_dia * 0.4;
 
        /* String primeros [] = new String[20];
@@ -250,10 +251,12 @@ public class CrearMenu extends AppCompatActivity {
 
     private void obtenerPrimeros(String q) {
 
+        double kcal_primero_min = (kcal_min * 0.3) - 40;
         double kcal_primero = (kcal_dia * 0.3) - 40;
         int intkcal_primero =  (int)kcal_primero;
+        int intkcal_primero_min =  (int)kcal_primero_min;
 
-        String calories = "0-"+intkcal_primero;
+        String calories = intkcal_primero_min+"-"+intkcal_primero;
         RecipeService service = retrofit.create(RecipeService.class);
         Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
         Log.i(TAG, q);
@@ -287,10 +290,12 @@ public class CrearMenu extends AppCompatActivity {
 
     private void obtenerSegundos(String q) {
 
+        double kcal_segundo_min = (kcal_min * 0.7) - 50;
         double kcal_segundo = (kcal_dia * 0.7) - 50;
         int intkcal_segundo =  (int)kcal_segundo;
+        int intkcal_segundo_min =  (int)kcal_segundo_min;
 
-        String calories = "0-"+ intkcal_segundo;
+        String calories = intkcal_segundo_min+"-"+ intkcal_segundo;
         RecipeService service = retrofit.create(RecipeService.class);
         Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
 

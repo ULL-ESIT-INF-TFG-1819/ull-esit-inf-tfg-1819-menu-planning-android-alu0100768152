@@ -61,7 +61,7 @@
     <string name="anadir">Añadir</string>
     <string name="borrar">Borrar</string>
     <string name="modificar">Modificar</string>
-    <string name="check_toast">%1$d:%2$s</string>
+    <string name="check_toast" translatable="false">%1$d:%2$s</string>
     <string name="estaenladespensa">¿Está en la despensa?</string>
     <string name="sielingredienteseencuentra">Si el ingrediente se encuentra en la despensa seleccionelo:</string>
     <string name="anadirnuevo">Añadir nuevo</string>
@@ -70,6 +70,8 @@
     <string name="buscar">Buscar</string>
     <string name="menu">Menu</string>
     <string name="caloriasdiarias">Calorias diarias:</string>
+    <string name="crearmenu">Crear Menú</string>
+    <string name="frutaaeleccion">Fruta a elección</string>
     <!--string name="app_name"></string>
     <string name="app_name"></string>
     <string name="app_name"></string>
