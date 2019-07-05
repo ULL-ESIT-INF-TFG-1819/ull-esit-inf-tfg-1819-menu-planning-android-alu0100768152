@@ -16,8 +16,7 @@ import com.example.tfg3.SQLite.AdminSQLiteOpenHelper;
 
 import java.util.List;
 
-public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClickListener{
-    private LayoutInflater layoutInflater;
+public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClickListener{ private LayoutInflater layoutInflater;
 
     public AdapterListaCompra(Context context, List<Row> objects)
     {

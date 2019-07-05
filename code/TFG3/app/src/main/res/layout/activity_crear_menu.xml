@@ -75,8 +75,8 @@
 
     <TextView
         android:id="@+id/tv_hola"
-        android:layout_width="318dp"
-        android:layout_height="74dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"

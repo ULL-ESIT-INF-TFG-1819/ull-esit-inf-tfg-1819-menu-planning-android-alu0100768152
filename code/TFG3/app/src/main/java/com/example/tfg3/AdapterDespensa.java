@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHolderDatos> implements View.OnClickListener {
+public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHolderDatos>
+        implements View.OnClickListener {
 
     ArrayList<Ingrediente_gramos> listDatos;
     private View.OnClickListener listener;
@@ -23,25 +24,20 @@ public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHo
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_despensa,null,false);
-
         view.setOnClickListener(this);
-
         return new ViewHolderDatos(view);
     }
-    //getContext()).inflate(R.layout.item_lista,null,false);
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
         holder.asignarDatos(listDatos.get(position).getIngrediente()+ " ("+listDatos.get(position).getGramos()+"g)");
-
     }
 
     @Override
     public int getItemCount() {
         return listDatos.size();
     }
-
 
     public void setOnClickListener(View.OnClickListener listener){
         this.listener=listener;
@@ -55,9 +51,7 @@ public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHo
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-
         TextView dato;
-
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             dato= (TextView) itemView.findViewById(R.id.itemDespensa);

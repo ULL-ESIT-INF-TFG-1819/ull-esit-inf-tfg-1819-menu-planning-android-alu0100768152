@@ -68,8 +68,10 @@ public class Despensa extends AppCompatActivity {
                 gramos = Double.valueOf(fila.getString(2)).doubleValue();
 
                 Cursor fila4 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato+" and hecho='si'", null);
-
+                int raciones=0;
                 if (fila4.moveToFirst()) {
+                    raciones=Integer.parseInt(fila4.getString(0));
+                    gramos=gramos/raciones;
                     for (int i = 0; i < tamDesp; i++) {
                         Cursor fila5 = BaseDeDatos.rawQuery("select id from despensa where id=" + i + " and ingrediente=" + "'" + ingrediente + "' and gramos=" + gramos, null); //+ " and tiene=si"
 
@@ -134,8 +136,6 @@ public class Despensa extends AppCompatActivity {
                 siguiente.putExtra("gramos", ""+finalListDatos.get(recyclerDespensa.getChildAdapterPosition(view)).getGramos());
                 siguiente.putExtra("id", ""+finalListDatos.get(recyclerDespensa.getChildAdapterPosition(view)).getId());
                 startActivity(siguiente);
-
-                //Toast.makeText(getApplicationContext(), "Selección: "+ finalListDatos.get(recyclerDespensa.getChildAdapterPosition(view)).getIngrediente(), Toast.LENGTH_LONG).show();//+listDatos.get(recyclerDespensa.getChildAdapterPosition(view)
             }
         });
 

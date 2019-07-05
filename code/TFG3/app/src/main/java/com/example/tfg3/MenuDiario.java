@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.tfg3.CarpetaAPI.Recipe;
@@ -38,6 +40,8 @@ public class MenuDiario extends AppCompatActivity {
     private String app_key= "70a3be442007e101a7617c95f943525a";
     private ImageView imgPrimero, imgSegundo;
     private TextView nombrePrimero, nombreSegundo;
+    private Button recargar1, recargar2;
+    private ProgressBar cargandoP, cargandoS;
     private int ID;
     private int ID2;
     private Retrofit retrofit;
@@ -118,6 +122,27 @@ public class MenuDiario extends AppCompatActivity {
         imgSegundo = (ImageView) findViewById(R.id.imgSegundo);
         nombrePrimero = (TextView) findViewById(R.id.nombrePrimero);
         nombreSegundo = (TextView) findViewById(R.id.nombreSegundo);
+        recargar1 = (Button) findViewById(R.id.recargar1);
+        cargandoP = (ProgressBar)findViewById(R.id.cargandoP);
+        recargar2 = (Button) findViewById(R.id.recargar2);
+        cargandoS = (ProgressBar)findViewById(R.id.cargandoS);
+
+        if(cargandoP.getVisibility() == View.VISIBLE){
+            cargandoP.setVisibility(View.INVISIBLE);
+        }
+
+        if(recargar1.getVisibility() == View.INVISIBLE){
+            recargar1.setVisibility(View.VISIBLE);
+        }
+
+        if(cargandoS.getVisibility() == View.VISIBLE){
+            cargandoS.setVisibility(View.INVISIBLE);
+        }
+
+        if(recargar2.getVisibility() == View.INVISIBLE){
+            recargar2.setVisibility(View.VISIBLE);
+        }
+
 
         Bundle datos = getIntent().getExtras();
         ID = Integer.parseInt(datos.getString("id"));
@@ -175,6 +200,16 @@ public class MenuDiario extends AppCompatActivity {
     }
 
     public void recalcular_primero(View view) {
+
+        if(cargandoP.getVisibility() == View.INVISIBLE){
+            cargandoP.setVisibility(View.VISIBLE);
+        }
+
+        if(recargar1.getVisibility() == View.VISIBLE){
+            recargar1.setVisibility(View.INVISIBLE);
+        }
+
+
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.edamam.com/")
@@ -242,6 +277,14 @@ public class MenuDiario extends AppCompatActivity {
 
     public void recalcular_segundo(View view) {
 
+
+        if(cargandoS.getVisibility() == View.INVISIBLE){
+            cargandoS.setVisibility(View.VISIBLE);
+        }
+
+        if(recargar2.getVisibility() == View.VISIBLE){
+            recargar2.setVisibility(View.INVISIBLE);
+        }
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.edamam.com/")
                 .addConverterFactory(GsonConverterFactory.create())

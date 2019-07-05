@@ -4,7 +4,12 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10sp"
+    android:paddingStart="10sp"
+    android:paddingLeft="20sp"
+    android:paddingTop="10sp"
+    android:paddingEnd="10sp"
+    android:paddingRight="20sp"
+    android:paddingBottom="10sp"
     android:textColor="#0d0d0d"
     android:textSize="20sp" />
 
