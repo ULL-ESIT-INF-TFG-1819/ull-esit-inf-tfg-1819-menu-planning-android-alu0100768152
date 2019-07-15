@@ -134,7 +134,7 @@ public class AdapterListaCompra extends ArrayAdapter<Row> implements View.OnClic
         }
 */
         BaseDeDatos.close();
-        Toast.makeText(this.getContext(),""+getItem(position).getId(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this.getContext(),""+getItem(position).getId(), Toast.LENGTH_SHORT).show();
     }
 
     static class Holder

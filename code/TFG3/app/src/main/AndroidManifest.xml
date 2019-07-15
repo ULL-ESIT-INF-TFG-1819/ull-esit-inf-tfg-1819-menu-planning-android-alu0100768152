@@ -33,7 +33,8 @@
         <activity android:name=".AnadirDespensa" />
         <activity android:name=".ModificarDespensa" />
         <activity android:name=".EstaEnLaDespensa" />
-        <activity android:name=".AnadirDespensa2"></activity>
+        <activity android:name=".AnadirDespensa2" />
+        <activity android:name=".BuscarWeb"></activity>
     </application>
 
 </manifest>

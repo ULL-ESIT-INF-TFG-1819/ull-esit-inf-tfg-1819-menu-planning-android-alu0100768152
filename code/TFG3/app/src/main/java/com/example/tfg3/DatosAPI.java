@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.tfg3.CarpetaAPI.Constantes;
 import com.example.tfg3.CarpetaAPI.ListaRecipeAdapter;
@@ -127,16 +128,24 @@ public class DatosAPI extends AppCompatActivity {
 
         if (fila.moveToFirst()) {
 
-            //diet = fila.getString(0);
             health = fila.getString(0);
 
+        }
+
+        Cursor fila2 = BaseDeDatos.rawQuery("select kcal_dia from macronutrientes where id=01", null);
+        double kcal_dia = 0.0;
+
+        if (fila2.moveToFirst()) {
+
+            kcal_dia = Double.valueOf(fila2.getString(0)).doubleValue();
 
         }
 
         //Log.i(TAG, health);
         BaseDeDatos.close();
-
-        String calories = "0-722";
+        int kcal = (int)kcal_dia;
+        Log.i(TAG, ""+kcal);
+        String calories = "0-"+kcal;
         Log.i(TAG, "health: "+health);
         RecipeService service = retrofit.create(RecipeService.class);
         Call<Respuesta> RespuestaCall = service.obtenerDatos("20", q, app_id, app_key, health, calories);
@@ -150,7 +159,21 @@ public class DatosAPI extends AppCompatActivity {
                     Respuesta respuesta = response.body();
                     ArrayList<Recipe> listaRecipe = respuesta.getHits();
 
+
                     listaRecipeAdapter.adicionarListaRecipe(listaRecipe);
+                    final ArrayList<Recipe> finalListDatos = listaRecipe;
+                    listaRecipeAdapter.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Intent siguiente = new Intent(getApplicationContext(), BuscarWeb.class);
+                            siguiente.putExtra("shareAs", finalListDatos.get(recyclerView.getChildAdapterPosition(v)).getRecipe().getShareAs());
+                            startActivity(siguiente);
+
+                            //Toast.makeText(getApplicationContext(), "Selección: "+finalListDatos.get(recyclerView.getChildAdapterPosition(v)).getRecipe().getLabel(), Toast.LENGTH_SHORT).show();
+                           // finalListDatos.get(recyclerDespensa.getChildAdapterPosition(view)).getIngrediente());
+                        }
+                    });
                     Log.i(TAG, "health: ENTREEEE");
 
                     //lista_Recipe = listaRecipe;

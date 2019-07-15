@@ -30,7 +30,8 @@
                     android:textAlignment="center"
                     android:textSize="36sp"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="10dp" />
+                    tools:layout_editor_absoluteX="10dp"
+                    tools:ignore="MissingConstraints" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerDespensa"

@@ -255,32 +255,28 @@ public class CrearMenu extends AppCompatActivity {
         double kcal_primero = (kcal_dia * 0.3) - 40;
         int intkcal_primero =  (int)kcal_primero;
         int intkcal_primero_min =  (int)kcal_primero_min;
-
+        String cantidad = "100";
         String calories = intkcal_primero_min+"-"+intkcal_primero;
+
         RecipeService service = retrofit.create(RecipeService.class);
-        Call<Respuesta> RespuestaCall = service.obtenerDatos("100", q, app_id, app_key, health, calories);
-        Log.i(TAG, q);
+        Call<Respuesta> RespuestaCall = service.obtenerDatos(cantidad, q, app_id, app_key, health, calories);
         RespuestaCall.enqueue(new Callback<Respuesta>() {
             @Override
             public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
 
                 if (response.isSuccessful()) {
-
                     Respuesta respuesta = response.body();
                     ArrayList<Recipe> listaRecipe = respuesta.getHits();
                     listaPrimeros = listaRecipe;
                     COUNT_p = listaRecipe.size();
                     Log.i(TAG, "ENTREE");
                     obtenerSegundos("main dish");//main dish
-
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
                 }
             }
-
             @Override
             public void onFailure(Call<Respuesta> call, Throwable t) {
-
                 Log.e(TAG, " onFailure: " + t.getMessage());
             }
         });

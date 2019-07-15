@@ -172,6 +172,8 @@ public class EstaEnLaDespensa extends AppCompatActivity {
 
         gramos_lista = gramos_lista / raciones;
 
+
+
         if(gramos_lista<=gramos){
 
             Cursor fila = BaseDeDatos.rawQuery("select id_plato, ingrediente, gramos from lista_ingredientes where id="+id, null);
@@ -206,6 +208,8 @@ public class EstaEnLaDespensa extends AppCompatActivity {
         }else{
             gramos_lista = gramos_lista-gramos;
 
+            //Toast.makeText(this,"total= "+gramos_lista, Toast.LENGTH_SHORT).show();
+
             Cursor fila = BaseDeDatos.rawQuery("select id_plato, ingrediente from lista_ingredientes where id="+id, null);
 
             int id_plato = 0;
@@ -218,7 +222,14 @@ public class EstaEnLaDespensa extends AppCompatActivity {
                 ingrediente_var = fila.getString(1);
             }
 
+            Cursor fila5 = BaseDeDatos.rawQuery("select raciones from platos where id="+id_plato, null);
 
+            int raciones2=0;
+            if(fila5.moveToFirst()) {
+                raciones2 = Integer.parseInt(fila5.getString(0));
+            }
+
+            gramos_lista = gramos_lista * raciones2;
             ContentValues registro = new ContentValues();
 
             registro.put("id", id);
@@ -226,6 +237,7 @@ public class EstaEnLaDespensa extends AppCompatActivity {
             registro.put("ingrediente", ingrediente_var);
             registro.put("gramos", gramos_lista);
             registro.put("tiene", tiene);
+            //Toast.makeText(this,"total= "+gramos_lista, Toast.LENGTH_SHORT).show();
 
             BaseDeDatos.update("lista_ingredientes", registro, "id=" + id, null);
 
